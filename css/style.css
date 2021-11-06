@@ -1,0 +1,42 @@
+/**
+*   ! default things
+**/
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: aquamarine;
+}
+/**
+*   ! za velicinu ekrana >= 800px
+**/
+/**
+*   ! meni
+**/
+
+#meni{
+    border: 1px solid black;
+    height: 6.25rem;
+}
+
+/**
+*   ! studenti
+**/
+.sg{
+    display: grid;
+    grid-template-columns: 59fr 41fr;
+}
+#studenti{
+    border: 1px solid black;
+    background-color: blue ;
+    height: 100px;
+}
+/**
+*   ! grupe
+**/
+#grupe{
+    border: 1px solid black;
+    height: 100%;
+}

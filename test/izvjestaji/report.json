@@ -1,0 +1,17 @@
+{
+  "tests" : [ {
+    "name" : "z1Desktop.gspec",
+    "startedAt" : 1636236370690,
+    "endedAt" : 1636236376755,
+    "failed" : false,
+    "statistic" : {
+      "passed" : 20,
+      "errors" : 0,
+      "warnings" : 0,
+      "total" : 20
+    },
+    "testId" : "1-z1desktop.gspec",
+    "duration" : 6065,
+    "failed" : false
+  } ]
+}
