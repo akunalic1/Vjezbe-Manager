@@ -1,6 +1,14 @@
 /**
 *   ! default things
 **/
+:root{
+    --clr-eagle-green: #1a535c;
+    --clr-sweet-red: #ff6b6b;
+    --clr-spanish-pink: #fcbcb8;
+    --clr-smith-apple: #beedaa;
+    --clr-tea-green: #d5ffd9;
+}
+
 *{
     margin:0;
     padding: 0;
@@ -8,6 +16,7 @@
 }
 body{
     background-color: aquamarine;
+    height: 100vh;
 }
 /**
 *   ! za velicinu ekrana >= 800px
@@ -17,8 +26,15 @@ body{
 **/
 
 #meni{
-    border: 1px solid black;
-    height: 6.25rem;
+    height: 10%;
+    background-color: var(--clr-eagle-green);
+    display: flex;
+    align-items: center;
+    padding-left:1rem ;
+}
+#meni a{
+    color: var(--clr-smith-apple);
+    margin-right: 1rem;
 }
 
 /**
@@ -26,12 +42,12 @@ body{
 **/
 .sg{
     display: flex;
-    
+    height: 90%;
 }
 #studenti{
     border: 1px solid black;
-    background-color: blue ;
-    height: 80vh;
+    background-color: var(--clr-tea-green) ;
+    height:100%;
     width: 59%;
     float:left;
     margin:auto;
@@ -41,7 +57,7 @@ body{
 **/
 #grupe{
     border: 1px solid black;
-    height: 80vh;
+    height: 100%;
     width: 41%;
     float: right;
 }
