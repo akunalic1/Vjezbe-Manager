@@ -65,23 +65,32 @@ body{
 }
 .graf{
     border:1px solid var(--clr-tea-green);
-    height: 12rem;
+    height: 10rem;
     width: 50%;
     background-image: url("/graf.png");
     background-size: cover;
+    background-size: contain;
+        background-repeat: no-repeat;
+        background-position:center;
 }
-@media (max-width: 950px){
+@media (max-width: 800px){
     .grafovi{
-        width: 50%;
+        width: 100%;
     }
     .divs{
         flex-direction: column;
     }
     .graf{
         width: 100%;
-        height: 8rem;
+        height: 15rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position:center;
+        margin: 1rem;
     }
     .vv{
+        display: flex;
+        flex-direction: column;
         height: auto;
         margin:0
     }
