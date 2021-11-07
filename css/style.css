@@ -25,18 +25,65 @@ body{
 *   ! studenti
 **/
 .sg{
-    display: grid;
-    grid-template-columns: 59fr 41fr;
+    display: flex;
+    
 }
 #studenti{
     border: 1px solid black;
     background-color: blue ;
-    height: 100px;
+    height: 80vh;
+    width: 59%;
+    float:left;
+    margin:auto;
 }
 /**
 *   ! grupe
 **/
 #grupe{
     border: 1px solid black;
-    height: 100%;
+    height: 80vh;
+    width: 41%;
+    float: right;
+}
+@media  (min-width: 500px) 
+  and (max-width: 799px){
+
+      .sg{
+          display: flex;
+          flex-direction: column;
+      }
+      #grupe, #studenti{
+         width: 100%;
+         height: 10rem;
+      }
+     /*#studenti{
+          order: 2;
+      }
+      #grupe{
+          order:1;
+      }*/
+}
+
+@media  (max-width: 499px){
+    #meni{
+        display: flex;
+        flex-direction: column;
+    }
+    #meni a{
+        width:100%
+    }
+      .sg{
+          display: flex;
+          flex-direction: column;
+      }
+      #grupe, #studenti{
+         width: 100%;
+         height: 10rem;
+      }
+     #studenti{
+          order: 2;
+      }
+      #grupe{
+          order:1;
+      }
 }
