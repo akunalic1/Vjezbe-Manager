@@ -55,6 +55,23 @@ body{
     border:2px solid var(--clr-sweet-red);
     box-shadow: 0px 1px 10px 2px var(--clr-spanish-pink);
 }
+.zadaci{
+    display: flex;
+    margin: 0.5rem;
+    column-gap: 0.5rem;
+    border: 1px solid black ;
+    border-top: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: linear-gradient(var(--clr-tea-green), #358d6b);
+}
+.zadaci div{
+    background-color: aquamarine;
+    padding: 0.5rem;
+    background-color: var(--clr-tea-green);
+    border: 1px solid black;
+    border-radius: 3px;
+}
 .grafovi{
     background-color: var(--clr-smith-apple);
     width: 40%;
