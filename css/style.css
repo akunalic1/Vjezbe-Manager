@@ -68,7 +68,6 @@ body{
 *   !   tabela
 **/
 table{
-    border: 1px solid  hotpink;
     height: fit-content;
     text-align: center;
     width: 90%;
@@ -121,6 +120,6 @@ table{
           order:1;
       }
       .broj_studenata, .termin{
-          visibility: hidden;
+         display: none;
       }
 }
