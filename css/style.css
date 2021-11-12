@@ -2,12 +2,10 @@
 *   ! default things
 **/
 :root{
-    --clr-eagle-green: #1BA014;
-    --clr-sweet-red: #ff6b6b;
-    --clr-spanish-pink: #fcbcb8;
-    --clr-smith-apple: black;
-    --clr-tea-green: #d5ffd9;
+    --clr-green: #A8EB12;
+    --clr-dark-blue:#051937;
 }
+
 
 *{
     margin:0;
@@ -26,15 +24,17 @@ body{
 
 #meni{
     height: 10%;
-    background-color: var(--clr-eagle-green);
+    background-color: var(--clr-dark-blue);
     display: flex;
     align-items: center;
     padding-left:1rem ;
 }
 #meni a{
     color: white;
-    letter-spacing: 2px;
     margin-right: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
 }
 
 /**
