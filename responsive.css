@@ -1,0 +1,21 @@
+@media (max-width:1000px) {
+    .form{
+        width: 70%;
+    }
+}
+@media (max-width:600px) {
+    .form{
+        width: 80%;
+    }
+}
+@media (max-width:500px) {
+    .form{
+        width: 90%;
+    }
+}
+@media (max-width:400px) {
+    .form{
+        width: 95%;
+        height: 97%;
+    }
+}
