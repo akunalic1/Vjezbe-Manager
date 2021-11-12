@@ -48,11 +48,8 @@ label{
     font-weight: 700;
     letter-spacing: 2px;
     font-size: 0.8em;
-    border-left: 4px solid var(--clr-dark-blue);
 }
 #submit-btn:hover{
     background-color: var(--clr-dark-blue);
-    color: var(--clr-green);
-    border-left: 4px solid var(--clr-green);
-    
+    color: var(--clr-green); 
 }
