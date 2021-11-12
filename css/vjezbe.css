@@ -1,9 +1,6 @@
 :root{
-    --clr-eagle-green: #1a535c;
-    --clr-sweet-red: #ff6b6b;
-    --clr-spanish-pink: #fcbcb8;
-    --clr-smith-apple: #beedaa;
-    --clr-tea-green: #d5ffd9;
+    --clr-green: #A8EB12;
+    --clr-dark-blue:#051937;
 }
 
 *{
@@ -17,63 +14,65 @@ body{
 
 #meni{
     height: 10%;
-    background-color: var(--clr-eagle-green);
+    background-color: #051937;
     display: flex;
     align-items: center;
     padding-left:1rem ;
 }
 #meni a{
-    color: var(--clr-smith-apple);
+    color: white;
     margin-right: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
 }
 .vv{
     width: 100%;
     height:90%;
-    background-color: lightgreen;
     display: flex;
 }
 #odabirVjezbe{
-    background-color: var(--clr-tea-green);
     height: 100%;
     width:100%;
 }
 .vjezba{
     height: 3.5rem;
     width: auto;
-    border:1px solid var(--clr-sweet-red);
     border-radius: 10px;
     text-align: center;
     padding: 1rem;
     margin:0.7rem 0.5rem;
-    background-color: var(--clr-spanish-pink);
-    text-transform:uppercase;
-    color:maroon;
+    background-color: var(--clr-dark-blue);
+    text-transform: uppercase;
+    color: white;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     letter-spacing: 0.1rem;
 }
 .vjezba:hover{
-    border:2px solid var(--clr-sweet-red);
-    box-shadow: 0px 1px 10px 2px var(--clr-spanish-pink);
+    border:2px solid var(--clr-green);
+    box-shadow: 0px 1px 10px 2px var(--clr-green);
 }
 .zadaci{
     display: flex;
     margin: 0.5rem;
     column-gap: 0.5rem;
-    border: 1px solid black ;
+    border: 1px solid var(--clr-dark-blue);
     border-top: none;
     padding: 0.5rem;
     border-radius: 10px;
-    background: linear-gradient(var(--clr-tea-green), #358d6b);
+    
 }
 .zadaci div{
-    background-color: aquamarine;
     padding: 0.5rem;
-    background-color: var(--clr-tea-green);
-    border: 1px solid black;
-    border-radius: 3px;
+    border: 1px solid var(--clr-dark-blue);
+    border-radius: 10px;
+    background-color: var(--clr-green);
+    color: var(--clr-dark-blue);
+    text-transform: uppercase;
+    font-size:small;
 }
 .grafovi{
-    background-color: var(--clr-smith-apple);
+    background-color: var(--clr-green);
     width: 40%;
     height: 100%;
 }
@@ -81,14 +80,14 @@ body{
     display: flex;
 }
 .graf{
-    border:1px solid var(--clr-tea-green);
+    border:1px solid white;
     height: 10rem;
     width: 50%;
     background-image: url("/graf.png");
     background-size: cover;
     background-size: contain;
-        background-repeat: no-repeat;
-        background-position:center;
+    background-repeat: no-repeat;
+    background-position:center;
 }
 @media (max-width: 800px){
     .grafovi{

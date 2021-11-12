@@ -2,10 +2,10 @@
 *   ! default things
 **/
 :root{
-    --clr-eagle-green: #1a535c;
+    --clr-eagle-green: #1BA014;
     --clr-sweet-red: #ff6b6b;
     --clr-spanish-pink: #fcbcb8;
-    --clr-smith-apple: #beedaa;
+    --clr-smith-apple: black;
     --clr-tea-green: #d5ffd9;
 }
 
@@ -15,7 +15,6 @@
     box-sizing: border-box;
 }
 body{
-    background-color: aquamarine;
     height: 100vh;
 }
 /**
@@ -33,7 +32,8 @@ body{
     padding-left:1rem ;
 }
 #meni a{
-    color: var(--clr-smith-apple);
+    color: white;
+    letter-spacing: 2px;
     margin-right: 1rem;
 }
 
@@ -46,7 +46,6 @@ body{
 }
 #studenti{
     border: 1px solid black;
-    background-color: var(--clr-tea-green) ;
     height:100%;
     width: 59%;
     float:left;
