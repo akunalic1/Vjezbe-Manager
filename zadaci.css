@@ -5,7 +5,7 @@
     font-family: sans-serif;
 }
 :root{
-    --clr-light-red: #FF655B;
+    --clr-light-blue: #00ACFF;
     --clr-dark-blue:#051937;
 }
 /* ! body */
@@ -21,7 +21,7 @@ body{
     border: 1px solid var(--clr-dark-blue); 
     width: 25rem;
     padding: 1rem;
-    border-left: 4px solid var(--clr-light-red);
+    border-left: 4px solid var(--clr-light-blue);
 }
 form div{
     display: flex;
@@ -34,7 +34,7 @@ select{
     outline: none;
     border:1px solid black;
     padding-left: 0.5rem;
-    color:#FF655B;
+    color:var(--clr-light-blue);
 }
 label{
     margin-bottom: 0.3rem;
@@ -43,7 +43,7 @@ label{
 #submit-btn{
     width: 100%;
     padding: 0.5rem 1rem;
-    background-color: var(--clr-light-red);
+    background-color: var(--clr-light-blue);
     border:1px solid var(--clr-dark-blue);
     text-transform: uppercase;
     font-weight: 700;
@@ -52,7 +52,7 @@ label{
 }
 #submit-btn:hover{
     background-color: var(--clr-dark-blue);
-    color: var(--clr-light-red); 
+    color: var(--clr-light-blue); 
 }
 textarea{
     resize: none;
