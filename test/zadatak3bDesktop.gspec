@@ -1,0 +1,56 @@
+@objects
+    body body
+    form .form
+    odabirVjezbe #odabirVjezbe
+    odabirZadatka #odabirZadatka
+    komentar #komentar
+    submitBtn   #submit-btn
+    labels*  form div label
+
+= visibility =
+    odabirVjezbe:
+        visible
+    odabirZadatka:
+        visible
+    komentar:
+        visible
+    submitBtn:
+        visible
+    labels*:
+        visible
+
+= in the center =
+    form:
+        centered all inside body
+
+= number of labels =
+    labels*:
+        count any labels* is 4
+
+= above section =
+    odabirVjezbe:
+        above odabirZadatka
+    odabirZadatka:
+        above komentar
+    komentar:
+        above submitBtn
+
+= below section =
+    odabirZadatka:
+        below odabirVjezbe
+    komentar:
+        below odabirZadatka
+    submitBtn:
+        below komentar
+
+= text =
+    submitBtn:
+        css font-family contains "sans-serif" 
+
+= height section =
+    form:
+        height 70 to 75% of body/height
+
+= width section =
+    form:
+        width 400 to 450px 

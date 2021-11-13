@@ -1,0 +1,56 @@
+@objects
+    body body
+    form .form
+    url #url
+    akademskaGodina #akademskaGodina
+    imenovanjeBrancheva #imenovanjeBrancheva
+    submitBtn   #submit-btn
+    labels*  form div label
+
+= visibility =
+    form:
+        visible
+    akademskaGodina:
+        visible
+    imenovanjeBrancheva:
+        visible
+    submitBtn:
+        visible
+    labels*:
+        visible
+
+= in the center =
+    form:
+        centered all inside body
+
+= number of labels =
+    labels*:
+        count any labels* is 3
+
+= above section =
+    url:
+        above akademskaGodina
+    akademskaGodina:
+        above imenovanjeBrancheva
+    imenovanjeBrancheva:
+        above submitBtn
+
+= below section =
+    akademskaGodina:
+        below url
+    imenovanjeBrancheva:
+        below akademskaGodina
+    submitBtn:
+        below imenovanjeBrancheva
+
+= text =
+    submitBtn:
+        css font-family contains "sans-serif" 
+
+= height section =
+    form:
+        height 40 to 60% of body/height
+
+= width section =
+    form:
+        width 78 to 82% of body/width

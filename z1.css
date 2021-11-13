@@ -23,7 +23,7 @@ body{
 **/
 
 #meni{
-    height: 10%;
+    height: 100px;
     background-color: var(--clr-dark-blue);
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@ body{
 **/
 .sg{
     display: flex;
-    height: 90%;
+    height: calc(100% - 100px);
 }
 #studenti{
     border: 1px solid black;
@@ -103,30 +103,39 @@ table{
 /**
 *   ! media query
 **/
-@media  (min-width: 500px) 
-  and (max-width: 799px){
-
+@media screen and (max-width: 799px){
       .sg{
           display: flex;
-
+            flex-direction: column;
       }
       #grupe, #studenti{
          width: 100%;
-         height: 100%;
+         height: fit-content;
       }
+      #studenti{
+          order: 2;
+      }
+      #grupe{
+          order:1;
+      }
+      
       .grid{
         grid-template-columns: repeat(1, 1fr);
       }
       
 }
 
-@media  (max-width: 499px){
+@media screen and (max-width: 499px){
     #meni{
         display: flex;
         flex-direction: column;
+        padding: 0;
+        justify-content: center;
+        text-align: center;
     }
     #meni a{
-        width:100%
+        width:100%;
+        margin:0;
     }
       .sg{
           display: flex;
@@ -134,14 +143,15 @@ table{
       }
       #grupe, #studenti{
          width: 100%;
-         height: 10rem;
+         height: fit-content;
       }
-     #studenti{
+     /*#studenti{
           order: 2;
       }
       #grupe{
           order:1;
       }
+      */
       .broj_studenata, .termin{
          display: none;
       }

@@ -1,11 +1,11 @@
-@media (max-width:800px) and (min-width:500px){
+@media  (max-width:800px) and (min-width:500px){
     .form{
         width: 80%;
     }
 }
-@media (max-width:400px) {
+@media  (max-width:499px) {
     .form{
-        width: 95%;
+        width: 97%;
         height: 97%;
     }
 }
