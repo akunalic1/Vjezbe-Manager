@@ -1,21 +1,21 @@
 {
-  "testId" : "1-zadatak3a.gspec",
-  "name" : "zadatak3a.gspec",
+  "testId" : "1-zadatak3adesktop.gspec",
+  "name" : "zadatak3aDesktop.gspec",
   "report" : {
     "nodes" : [ {
       "name" : "Simple check",
       "status" : "info",
       "nodes" : [ {
-        "name" : "check  zadatak3a.gspec --url http://localhost/mojRepozitorij.html --size 1024x768 --htmlreport izvjestaji_3zadatak",
+        "name" : "check  zadatak3aDesktop.gspec --url http://localhost/mojRepozitorij.html --size 1024x768 --htmlreport izvjestaji_3aDesktop",
         "status" : "info",
         "nodes" : [ {
-          "name" : "Check layout: zadatak3a.gspec included tags: ",
+          "name" : "Check layout: zadatak3aDesktop.gspec included tags: ",
           "status" : "info",
-          "time" : 1636812817711,
+          "time" : 1636816092314,
           "sections" : [ {
             "name" : "visibility",
             "place" : {
-              "filePath" : "zadatak3a.gspec",
+              "filePath" : "zadatak3aDesktop.gspec",
               "lineNumber" : 10
             },
             "objects" : [ {
@@ -23,7 +23,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 12
                 },
                 "name" : "visible",
@@ -34,7 +34,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 14
                 },
                 "name" : "visible",
@@ -45,7 +45,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 16
                 },
                 "name" : "visible",
@@ -56,7 +56,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 18
                 },
                 "name" : "visible",
@@ -67,7 +67,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 20
                 },
                 "name" : "visible",
@@ -78,7 +78,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 20
                 },
                 "name" : "visible",
@@ -89,7 +89,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 20
                 },
                 "name" : "visible",
@@ -99,7 +99,7 @@
           }, {
             "name" : "in the center",
             "place" : {
-              "filePath" : "zadatak3a.gspec",
+              "filePath" : "zadatak3aDesktop.gspec",
               "lineNumber" : 22
             },
             "objects" : [ {
@@ -107,7 +107,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 24
                 },
                 "name" : "centered all inside body",
@@ -117,7 +117,7 @@
           }, {
             "name" : "number of labels",
             "place" : {
-              "filePath" : "zadatak3a.gspec",
+              "filePath" : "zadatak3aDesktop.gspec",
               "lineNumber" : 26
             },
             "objects" : [ {
@@ -125,7 +125,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 28
                 },
                 "name" : "count any labels* is 3",
@@ -136,7 +136,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 28
                 },
                 "name" : "count any labels* is 3",
@@ -147,7 +147,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 28
                 },
                 "name" : "count any labels* is 3",
@@ -157,7 +157,7 @@
           }, {
             "name" : "above section",
             "place" : {
-              "filePath" : "zadatak3a.gspec",
+              "filePath" : "zadatak3aDesktop.gspec",
               "lineNumber" : 30
             },
             "objects" : [ {
@@ -165,7 +165,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 32
                 },
                 "name" : "above akademskaGodina",
@@ -188,7 +188,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 34
                 },
                 "name" : "above imenovanjeBrancheva",
@@ -211,7 +211,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 36
                 },
                 "name" : "above submitBtn",
@@ -233,7 +233,7 @@
           }, {
             "name" : "below section",
             "place" : {
-              "filePath" : "zadatak3a.gspec",
+              "filePath" : "zadatak3aDesktop.gspec",
               "lineNumber" : 38
             },
             "objects" : [ {
@@ -241,7 +241,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 40
                 },
                 "name" : "below url",
@@ -264,7 +264,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 42
                 },
                 "name" : "below akademskaGodina",
@@ -287,7 +287,7 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 44
                 },
                 "name" : "below imenovanjeBrancheva",
@@ -309,7 +309,7 @@
           }, {
             "name" : "text",
             "place" : {
-              "filePath" : "zadatak3a.gspec",
+              "filePath" : "zadatak3aDesktop.gspec",
               "lineNumber" : 46
             },
             "objects" : [ {
@@ -317,11 +317,71 @@
               "specs" : [ {
                 "status" : "info",
                 "place" : {
-                  "filePath" : "zadatak3a.gspec",
+                  "filePath" : "zadatak3aDesktop.gspec",
                   "lineNumber" : 48
                 },
                 "name" : "css font-family contains \"sans-serif\"",
                 "highlight" : [ "submitBtn" ]
+              } ]
+            } ]
+          }, {
+            "name" : "height section",
+            "place" : {
+              "filePath" : "zadatak3aDesktop.gspec",
+              "lineNumber" : 50
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3aDesktop.gspec",
+                  "lineNumber" : 52
+                },
+                "name" : "height 40 to 60% of body/height",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "form",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "form",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : "40 to 60% [272 to 408px]",
+                  "realDistance" : "46% [314px]"
+                } ],
+                "highlight" : [ "form" ]
+              } ]
+            } ]
+          }, {
+            "name" : "width section",
+            "place" : {
+              "filePath" : "zadatak3aDesktop.gspec",
+              "lineNumber" : 54
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3aDesktop.gspec",
+                  "lineNumber" : 56
+                },
+                "name" : "width 400 to 450px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "form",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "form",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "400 to 450px",
+                  "realDistance" : "400px"
+                } ],
+                "highlight" : [ "form" ]
               } ]
             } ]
           } ],
@@ -357,10 +417,10 @@
           "screenshot" : "layout-1-screenshot.png",
           "type" : "layout"
         } ],
-        "time" : 1636812815876,
+        "time" : 1636816090440,
         "type" : "node"
       } ],
-      "time" : 1636812812539,
+      "time" : 1636816087196,
       "type" : "node"
     } ]
   }

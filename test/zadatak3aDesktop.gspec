@@ -46,3 +46,11 @@
 = text =
     submitBtn:
         css font-family contains "sans-serif" 
+
+= height section =
+    form:
+        height 40 to 60% of body/height
+
+= width section =
+    form:
+        width 400 to 450px 
