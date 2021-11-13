@@ -6,12 +6,12 @@
       "name" : "Simple check",
       "status" : "info",
       "nodes" : [ {
-        "name" : "check  z1Desktop.gspec --url http://localhost/z1.html --size 1024x768 --htmlreport izvjestaj_z1Desktop",
+        "name" : "check  z1Desktop.gspec --url http://localhost/z1.html --size 1024x768 --htmlreport izvjestaj_z1Desktop_ch",
         "status" : "info",
         "nodes" : [ {
           "name" : "Check layout: z1Desktop.gspec included tags: ",
           "status" : "info",
-          "time" : 1636831666971,
+          "time" : 1636831890542,
           "sections" : [ {
             "name" : "Width section",
             "place" : {
@@ -36,8 +36,8 @@
                     "object" : "meni",
                     "edge" : "right"
                   },
-                  "expectedDistance" : "98 to 100% [991 to 1012px]",
-                  "realDistance" : "100% [1012px]"
+                  "expectedDistance" : "98 to 100% [987 to 1008px]",
+                  "realDistance" : "100% [1008px]"
                 } ],
                 "highlight" : [ "meni" ]
               } ]
@@ -59,8 +59,8 @@
                     "object" : "studenti",
                     "edge" : "right"
                   },
-                  "expectedDistance" : "58 to 60% [586 to 607px]",
-                  "realDistance" : "58% [597px]"
+                  "expectedDistance" : "58 to 60% [584 to 604px]",
+                  "realDistance" : "59% [595px]"
                 } ],
                 "highlight" : [ "studenti" ]
               } ]
@@ -82,8 +82,8 @@
                     "object" : "grupe",
                     "edge" : "right"
                   },
-                  "expectedDistance" : "39 to 41% [394 to 414px]",
-                  "realDistance" : "40% [414px]"
+                  "expectedDistance" : "39 to 41% [393 to 413px]",
+                  "realDistance" : "40% [413px]"
                 } ],
                 "highlight" : [ "grupe" ]
               } ]
@@ -468,31 +468,31 @@
           } ],
           "objects" : {
             "meni" : {
-              "area" : [ 0, 0, 1012, 100 ]
+              "area" : [ 0, 0, 1008, 100 ]
             },
             "grupelnk" : {
               "area" : [ 16, 41, 62, 18 ]
             },
             "body" : {
-              "area" : [ 0, 0, 1012, 677 ]
+              "area" : [ 0, 0, 1008, 680 ]
             },
             "vjezbelnk" : {
-              "area" : [ 94, 41, 69, 18 ]
+              "area" : [ 94, 41, 70, 18 ]
             },
             "grupe" : {
-              "area" : [ 597, 100, 414, 577 ]
+              "area" : [ 594, 100, 413, 580 ]
             },
             "studenti" : {
-              "area" : [ 0, 100, 597, 577 ]
+              "area" : [ 0, 100, 595, 580 ]
             }
           },
           "screenshot" : "layout-1-screenshot.png",
           "type" : "layout"
         } ],
-        "time" : 1636831664383,
+        "time" : 1636831888659,
         "type" : "node"
       } ],
-      "time" : 1636831656541,
+      "time" : 1636831885091,
       "type" : "node"
     } ]
   }

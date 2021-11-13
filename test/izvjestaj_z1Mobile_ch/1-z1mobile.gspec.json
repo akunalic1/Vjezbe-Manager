@@ -6,12 +6,12 @@
       "name" : "Simple check",
       "status" : "info",
       "nodes" : [ {
-        "name" : "check  z1Mobile.gspec --url http://localhost/z1.html --size 400x768 --htmlreport izvjestaj_z1Mobile",
+        "name" : "check  z1Mobile.gspec --url http://localhost/z1.html --size 400x768 --htmlreport izvjestaj_z1Mobile_ch",
         "status" : "info",
         "nodes" : [ {
           "name" : "Check layout: z1Mobile.gspec included tags: ",
-          "status" : "info",
-          "time" : 1636831700374,
+          "status" : "error",
+          "time" : 1636831905386,
           "sections" : [ {
             "name" : "Width section",
             "place" : {
@@ -36,20 +36,21 @@
                     "object" : "meni",
                     "edge" : "right"
                   },
-                  "expectedDistance" : "98 to 100% [444 to 454px]",
-                  "realDistance" : "100% [454px]"
+                  "expectedDistance" : "98 to 100% [490 to 500px]",
+                  "realDistance" : "100% [500px]"
                 } ],
                 "highlight" : [ "meni" ]
               } ]
             }, {
               "name" : "grupelnk",
               "specs" : [ {
-                "status" : "info",
+                "status" : "error",
                 "place" : {
                   "filePath" : "z1Mobile.gspec",
                   "lineNumber" : 13
                 },
                 "name" : "width 98 to 100 % of body/width",
+                "errors" : [ "\"grupelnk\" width is 12% [62px] which is not in range of 98 to 100% [490 to 500px]" ],
                 "meta" : [ {
                   "from" : {
                     "object" : "grupelnk",
@@ -59,20 +60,21 @@
                     "object" : "grupelnk",
                     "edge" : "right"
                   },
-                  "expectedDistance" : "98 to 100% [444 to 454px]",
-                  "realDistance" : "100% [454px]"
+                  "expectedDistance" : "98 to 100% [490 to 500px]",
+                  "realDistance" : "12% [62px]"
                 } ],
                 "highlight" : [ "grupelnk" ]
               } ]
             }, {
               "name" : "vjezbelnk",
               "specs" : [ {
-                "status" : "info",
+                "status" : "error",
                 "place" : {
                   "filePath" : "z1Mobile.gspec",
                   "lineNumber" : 15
                 },
                 "name" : "width 98 to 100 % of body/width",
+                "errors" : [ "\"vjezbelnk\" width is 14% [70px] which is not in range of 98 to 100% [490 to 500px]" ],
                 "meta" : [ {
                   "from" : {
                     "object" : "vjezbelnk",
@@ -82,8 +84,8 @@
                     "object" : "vjezbelnk",
                     "edge" : "right"
                   },
-                  "expectedDistance" : "98 to 100% [444 to 454px]",
-                  "realDistance" : "100% [454px]"
+                  "expectedDistance" : "98 to 100% [490 to 500px]",
+                  "realDistance" : "14% [70px]"
                 } ],
                 "highlight" : [ "vjezbelnk" ]
               } ]
@@ -105,8 +107,8 @@
                     "object" : "studenti",
                     "edge" : "right"
                   },
-                  "expectedDistance" : "98 to 100% [444 to 454px]",
-                  "realDistance" : "100% [454px]"
+                  "expectedDistance" : "98 to 100% [490 to 500px]",
+                  "realDistance" : "100% [500px]"
                 } ],
                 "highlight" : [ "studenti" ]
               } ]
@@ -128,8 +130,8 @@
                     "object" : "grupe",
                     "edge" : "right"
                   },
-                  "expectedDistance" : "98 to 100% [444 to 454px]",
-                  "realDistance" : "100% [454px]"
+                  "expectedDistance" : "98 to 100% [490 to 500px]",
+                  "realDistance" : "100% [500px]"
                 } ],
                 "highlight" : [ "grupe" ]
               } ]
@@ -233,7 +235,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "213px"
+                  "realDistance" : "204px"
                 } ],
                 "highlight" : [ "grupelnk", "studenti" ]
               }, {
@@ -253,7 +255,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "50px"
+                  "realDistance" : "41px"
                 } ],
                 "highlight" : [ "grupelnk", "grupe" ]
               } ]
@@ -276,7 +278,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "195px"
+                  "realDistance" : "204px"
                 } ],
                 "highlight" : [ "vjezbelnk", "studenti" ]
               }, {
@@ -296,7 +298,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "32px"
+                  "realDistance" : "41px"
                 } ],
                 "highlight" : [ "vjezbelnk", "grupe" ]
               } ]
@@ -319,7 +321,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "1px"
+                  "realDistance" : "0px"
                 } ],
                 "highlight" : [ "grupe", "studenti" ]
               } ]
@@ -369,7 +371,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "213px"
+                  "realDistance" : "204px"
                 } ],
                 "highlight" : [ "studenti", "grupelnk" ]
               }, {
@@ -389,7 +391,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "195px"
+                  "realDistance" : "204px"
                 } ],
                 "highlight" : [ "studenti", "vjezbelnk" ]
               }, {
@@ -409,7 +411,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "1px"
+                  "realDistance" : "0px"
                 } ],
                 "highlight" : [ "studenti", "grupe" ]
               } ]
@@ -452,7 +454,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "50px"
+                  "realDistance" : "41px"
                 } ],
                 "highlight" : [ "grupe", "grupelnk" ]
               }, {
@@ -472,7 +474,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "32px"
+                  "realDistance" : "41px"
                 } ],
                 "highlight" : [ "grupe", "vjezbelnk" ]
               } ]
@@ -583,31 +585,31 @@
           } ],
           "objects" : {
             "meni" : {
-              "area" : [ 0, 0, 454, 100 ]
+              "area" : [ 0, 0, 500, 100 ]
             },
             "grupelnk" : {
-              "area" : [ 0, 32, 454, 18 ]
+              "area" : [ 16, 41, 62, 18 ]
             },
             "body" : {
-              "area" : [ 0, 0, 454, 677 ]
+              "area" : [ 0, 0, 500, 680 ]
             },
             "vjezbelnk" : {
-              "area" : [ 0, 50, 454, 18 ]
+              "area" : [ 94, 41, 70, 18 ]
             },
             "grupe" : {
-              "area" : [ 0, 100, 454, 162 ]
+              "area" : [ 0, 100, 500, 163 ]
             },
             "studenti" : {
-              "area" : [ 0, 263, 454, 296 ]
+              "area" : [ 0, 263, 500, 296 ]
             }
           },
           "screenshot" : "layout-1-screenshot.png",
           "type" : "layout"
         } ],
-        "time" : 1636831697676,
+        "time" : 1636831903367,
         "type" : "node"
       } ],
-      "time" : 1636831689178,
+      "time" : 1636831899717,
       "type" : "node"
     } ]
   }

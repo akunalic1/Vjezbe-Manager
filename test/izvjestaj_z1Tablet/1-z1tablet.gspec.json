@@ -11,7 +11,7 @@
         "nodes" : [ {
           "name" : "Check layout: z1Tablet.gspec included tags: ",
           "status" : "info",
-          "time" : 1636830298318,
+          "time" : 1636831681143,
           "sections" : [ {
             "name" : "Width section",
             "place" : {
@@ -204,7 +204,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "162px"
+                  "realDistance" : "163px"
                 } ],
                 "highlight" : [ "meni", "studenti" ]
               }, {
@@ -247,7 +247,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "203px"
+                  "realDistance" : "204px"
                 } ],
                 "highlight" : [ "grupelnk", "studenti" ]
               }, {
@@ -290,7 +290,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "203px"
+                  "realDistance" : "204px"
                 } ],
                 "highlight" : [ "vjezbelnk", "studenti" ]
               }, {
@@ -333,7 +333,7 @@
                     "edge" : "top"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "0px"
+                  "realDistance" : "1px"
                 } ],
                 "highlight" : [ "grupe", "studenti" ]
               } ]
@@ -363,7 +363,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "162px"
+                  "realDistance" : "163px"
                 } ],
                 "highlight" : [ "studenti", "meni" ]
               }, {
@@ -383,7 +383,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "203px"
+                  "realDistance" : "204px"
                 } ],
                 "highlight" : [ "studenti", "grupelnk" ]
               }, {
@@ -403,7 +403,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "203px"
+                  "realDistance" : "204px"
                 } ],
                 "highlight" : [ "studenti", "vjezbelnk" ]
               }, {
@@ -423,7 +423,7 @@
                     "edge" : "bottom"
                   },
                   "expectedDistance" : ">= 0px",
-                  "realDistance" : "0px"
+                  "realDistance" : "1px"
                 } ],
                 "highlight" : [ "studenti", "grupe" ]
               } ]
@@ -612,16 +612,16 @@
               "area" : [ 0, 100, 688, 162 ]
             },
             "studenti" : {
-              "area" : [ 0, 262, 688, 296 ]
+              "area" : [ 0, 263, 688, 296 ]
             }
           },
           "screenshot" : "layout-1-screenshot.png",
           "type" : "layout"
         } ],
-        "time" : 1636830295673,
+        "time" : 1636831678313,
         "type" : "node"
       } ],
-      "time" : 1636830288019,
+      "time" : 1636831669368,
       "type" : "node"
     } ]
   }
