@@ -1,0 +1,17 @@
+{
+  "tests" : [ {
+    "name" : "zadatak3aDesktop.gspec",
+    "startedAt" : 1636832065377,
+    "endedAt" : 1636832077429,
+    "failed" : false,
+    "statistic" : {
+      "passed" : 20,
+      "errors" : 0,
+      "warnings" : 0,
+      "total" : 20
+    },
+    "testId" : "1-zadatak3adesktop.gspec",
+    "duration" : 12052,
+    "failed" : false
+  } ]
+}

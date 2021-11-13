@@ -1,0 +1,17 @@
+{
+  "tests" : [ {
+    "name" : "zadatak3aMobile.gspec",
+    "startedAt" : 1636832096858,
+    "endedAt" : 1636832109282,
+    "failed" : false,
+    "statistic" : {
+      "passed" : 20,
+      "errors" : 0,
+      "warnings" : 0,
+      "total" : 20
+    },
+    "testId" : "1-zadatak3amobile.gspec",
+    "duration" : 12424,
+    "failed" : false
+  } ]
+}
