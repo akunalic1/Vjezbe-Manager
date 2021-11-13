@@ -1,0 +1,17 @@
+{
+  "tests" : [ {
+    "name" : "zadatak3cTablet.gspec",
+    "startedAt" : 1636833969435,
+    "endedAt" : 1636833982118,
+    "failed" : false,
+    "statistic" : {
+      "passed" : 14,
+      "errors" : 0,
+      "warnings" : 0,
+      "total" : 14
+    },
+    "testId" : "1-zadatak3ctablet.gspec",
+    "duration" : 12683,
+    "failed" : false
+  } ]
+}

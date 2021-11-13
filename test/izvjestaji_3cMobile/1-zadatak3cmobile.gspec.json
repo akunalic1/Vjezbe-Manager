@@ -1,0 +1,312 @@
+{
+  "testId" : "1-zadatak3cmobile.gspec",
+  "name" : "zadatak3cMobile.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Simple check",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  zadatak3cMobile.gspec --url http://localhost/error.html --size 400x768 --htmlreport izvjestaji_3cMobile",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: zadatak3cMobile.gspec included tags: ",
+          "status" : "info",
+          "time" : 1636833992877,
+          "sections" : [ {
+            "name" : "visibility",
+            "place" : {
+              "filePath" : "zadatak3cMobile.gspec",
+              "lineNumber" : 9
+            },
+            "objects" : [ {
+              "name" : "error",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 11
+                },
+                "name" : "visible",
+                "highlight" : [ "error" ]
+              } ]
+            }, {
+              "name" : "bezGreske",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 13
+                },
+                "name" : "visible",
+                "highlight" : [ "bezGreske" ]
+              } ]
+            }, {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 15
+                },
+                "name" : "visible",
+                "highlight" : [ "submitBtn" ]
+              } ]
+            }, {
+              "name" : "labels1",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 17
+                },
+                "name" : "visible",
+                "highlight" : [ "labels1" ]
+              } ]
+            }, {
+              "name" : "labels2",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 17
+                },
+                "name" : "visible",
+                "highlight" : [ "labels2" ]
+              } ]
+            } ]
+          }, {
+            "name" : "in the center",
+            "place" : {
+              "filePath" : "zadatak3cMobile.gspec",
+              "lineNumber" : 19
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 21
+                },
+                "name" : "centered all inside body",
+                "highlight" : [ "form", "body" ]
+              } ]
+            } ]
+          }, {
+            "name" : "number of labels",
+            "place" : {
+              "filePath" : "zadatak3cMobile.gspec",
+              "lineNumber" : 23
+            },
+            "objects" : [ {
+              "name" : "labels1",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 25
+                },
+                "name" : "count any labels* is 2",
+                "highlight" : [ "labels2", "labels1" ]
+              } ]
+            }, {
+              "name" : "labels2",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 25
+                },
+                "name" : "count any labels* is 2",
+                "highlight" : [ "labels2", "labels1" ]
+              } ]
+            } ]
+          }, {
+            "name" : "above section",
+            "place" : {
+              "filePath" : "zadatak3cMobile.gspec",
+              "lineNumber" : 27
+            },
+            "objects" : [ {
+              "name" : "error",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 29
+                },
+                "name" : "above bezGreske",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "error",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "bezGreske",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "25px"
+                } ],
+                "highlight" : [ "error", "bezGreske" ]
+              } ]
+            }, {
+              "name" : "bezGreske",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 31
+                },
+                "name" : "above submitBtn",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "bezGreske",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "submitBtn",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "26px"
+                } ],
+                "highlight" : [ "bezGreske", "submitBtn" ]
+              } ]
+            } ]
+          }, {
+            "name" : "below section",
+            "place" : {
+              "filePath" : "zadatak3cMobile.gspec",
+              "lineNumber" : 33
+            },
+            "objects" : [ {
+              "name" : "bezGreske",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 35
+                },
+                "name" : "below error",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "bezGreske",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "error",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "25px"
+                } ],
+                "highlight" : [ "bezGreske", "error" ]
+              } ]
+            }, {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 37
+                },
+                "name" : "below bezGreske",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "submitBtn",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "bezGreske",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "26px"
+                } ],
+                "highlight" : [ "submitBtn", "bezGreske" ]
+              } ]
+            } ]
+          }, {
+            "name" : "text",
+            "place" : {
+              "filePath" : "zadatak3cMobile.gspec",
+              "lineNumber" : 39
+            },
+            "objects" : [ {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 41
+                },
+                "name" : "css font-family contains \"sans-serif\"",
+                "highlight" : [ "submitBtn" ]
+              } ]
+            } ]
+          }, {
+            "name" : "width section",
+            "place" : {
+              "filePath" : "zadatak3cMobile.gspec",
+              "lineNumber" : 45
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cMobile.gspec",
+                  "lineNumber" : 47
+                },
+                "name" : "width 94 to 100% of body/width",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "form",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "form",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "94 to 100% [426 to 454px]",
+                  "realDistance" : "96% [440px]"
+                } ],
+                "highlight" : [ "form" ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "submitBtn" : {
+              "area" : [ 26, 282, 403, 34 ]
+            },
+            "form" : {
+              "area" : [ 6, 10, 440, 656 ]
+            },
+            "bezGreske" : {
+              "area" : [ 131, 242, 14, 14 ]
+            },
+            "labels2" : {
+              "area" : [ 26, 238, 88, 18 ]
+            },
+            "labels1" : {
+              "area" : [ 26, 31, 403, 18 ]
+            },
+            "error" : {
+              "area" : [ 26, 54, 403, 163 ]
+            },
+            "body" : {
+              "area" : [ 0, 0, 454, 677 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        } ],
+        "time" : 1636833990664,
+        "type" : "node"
+      } ],
+      "time" : 1636833982819,
+      "type" : "node"
+    } ]
+  }
+}

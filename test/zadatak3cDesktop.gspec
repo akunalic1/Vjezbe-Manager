@@ -1,0 +1,48 @@
+@objects
+    body body
+    form .form
+    error #error
+    bezGreske #bezGreske
+    submitBtn   #submit-btn
+    labels*  form div label
+
+= visibility =
+    error:
+        visible
+    bezGreske:
+        visible
+    submitBtn:
+        visible
+    labels*:
+        visible
+
+= in the center =
+    form:
+        centered all inside body
+
+= number of labels =
+    labels*:
+        count any labels* is 2
+
+= above section =
+    error:
+        above bezGreske
+    bezGreske:
+        above submitBtn
+
+= below section =
+    bezGreske:
+        below error
+    submitBtn:
+        below bezGreske
+
+= text =
+    submitBtn:
+        css font-family contains "sans-serif" 
+
+= height section =
+
+
+= width section =
+    form:
+        width 400 to 450px 

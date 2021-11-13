@@ -1,0 +1,312 @@
+{
+  "testId" : "1-zadatak3cdesktop.gspec",
+  "name" : "zadatak3cDesktop.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Simple check",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  zadatak3cDesktop.gspec --url http://localhost/error.html --size 1024x768 --htmlreport izvjestaji_3cDesktop",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: zadatak3cDesktop.gspec included tags: ",
+          "status" : "info",
+          "time" : 1636833894321,
+          "sections" : [ {
+            "name" : "visibility",
+            "place" : {
+              "filePath" : "zadatak3cDesktop.gspec",
+              "lineNumber" : 9
+            },
+            "objects" : [ {
+              "name" : "error",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 11
+                },
+                "name" : "visible",
+                "highlight" : [ "error" ]
+              } ]
+            }, {
+              "name" : "bezGreske",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 13
+                },
+                "name" : "visible",
+                "highlight" : [ "bezGreske" ]
+              } ]
+            }, {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 15
+                },
+                "name" : "visible",
+                "highlight" : [ "submitBtn" ]
+              } ]
+            }, {
+              "name" : "labels1",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 17
+                },
+                "name" : "visible",
+                "highlight" : [ "labels1" ]
+              } ]
+            }, {
+              "name" : "labels2",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 17
+                },
+                "name" : "visible",
+                "highlight" : [ "labels2" ]
+              } ]
+            } ]
+          }, {
+            "name" : "in the center",
+            "place" : {
+              "filePath" : "zadatak3cDesktop.gspec",
+              "lineNumber" : 19
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 21
+                },
+                "name" : "centered all inside body",
+                "highlight" : [ "form", "body" ]
+              } ]
+            } ]
+          }, {
+            "name" : "number of labels",
+            "place" : {
+              "filePath" : "zadatak3cDesktop.gspec",
+              "lineNumber" : 23
+            },
+            "objects" : [ {
+              "name" : "labels1",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 25
+                },
+                "name" : "count any labels* is 2",
+                "highlight" : [ "labels2", "labels1" ]
+              } ]
+            }, {
+              "name" : "labels2",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 25
+                },
+                "name" : "count any labels* is 2",
+                "highlight" : [ "labels2", "labels1" ]
+              } ]
+            } ]
+          }, {
+            "name" : "above section",
+            "place" : {
+              "filePath" : "zadatak3cDesktop.gspec",
+              "lineNumber" : 27
+            },
+            "objects" : [ {
+              "name" : "error",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 29
+                },
+                "name" : "above bezGreske",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "error",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "bezGreske",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "25px"
+                } ],
+                "highlight" : [ "error", "bezGreske" ]
+              } ]
+            }, {
+              "name" : "bezGreske",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 31
+                },
+                "name" : "above submitBtn",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "bezGreske",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "submitBtn",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "26px"
+                } ],
+                "highlight" : [ "bezGreske", "submitBtn" ]
+              } ]
+            } ]
+          }, {
+            "name" : "below section",
+            "place" : {
+              "filePath" : "zadatak3cDesktop.gspec",
+              "lineNumber" : 33
+            },
+            "objects" : [ {
+              "name" : "bezGreske",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 35
+                },
+                "name" : "below error",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "bezGreske",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "error",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "25px"
+                } ],
+                "highlight" : [ "bezGreske", "error" ]
+              } ]
+            }, {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 37
+                },
+                "name" : "below bezGreske",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "submitBtn",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "bezGreske",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "26px"
+                } ],
+                "highlight" : [ "submitBtn", "bezGreske" ]
+              } ]
+            } ]
+          }, {
+            "name" : "text",
+            "place" : {
+              "filePath" : "zadatak3cDesktop.gspec",
+              "lineNumber" : 39
+            },
+            "objects" : [ {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 41
+                },
+                "name" : "css font-family contains \"sans-serif\"",
+                "highlight" : [ "submitBtn" ]
+              } ]
+            } ]
+          }, {
+            "name" : "width section",
+            "place" : {
+              "filePath" : "zadatak3cDesktop.gspec",
+              "lineNumber" : 46
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3cDesktop.gspec",
+                  "lineNumber" : 48
+                },
+                "name" : "width 400 to 450px",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "form",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "form",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "400 to 450px",
+                  "realDistance" : "400px"
+                } ],
+                "highlight" : [ "form" ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "submitBtn" : {
+              "area" : [ 326, 449, 363, 34 ]
+            },
+            "form" : {
+              "area" : [ 306, 177, 400, 323 ]
+            },
+            "bezGreske" : {
+              "area" : [ 430, 409, 14, 14 ]
+            },
+            "labels2" : {
+              "area" : [ 326, 405, 88, 18 ]
+            },
+            "labels1" : {
+              "area" : [ 326, 198, 363, 18 ]
+            },
+            "error" : {
+              "area" : [ 326, 221, 363, 163 ]
+            },
+            "body" : {
+              "area" : [ 0, 0, 1012, 677 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        } ],
+        "time" : 1636833892411,
+        "type" : "node"
+      } ],
+      "time" : 1636833884775,
+      "type" : "node"
+    } ]
+  }
+}
