@@ -1,0 +1,367 @@
+{
+  "testId" : "1-zadatak3a.gspec",
+  "name" : "zadatak3a.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Simple check",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  zadatak3a.gspec --url http://localhost/mojRepozitorij.html --size 1024x768 --htmlreport izvjestaji_3zadatak",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: zadatak3a.gspec included tags: ",
+          "status" : "info",
+          "time" : 1636812817711,
+          "sections" : [ {
+            "name" : "visibility",
+            "place" : {
+              "filePath" : "zadatak3a.gspec",
+              "lineNumber" : 10
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 12
+                },
+                "name" : "visible",
+                "highlight" : [ "form" ]
+              } ]
+            }, {
+              "name" : "akademskaGodina",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 14
+                },
+                "name" : "visible",
+                "highlight" : [ "akademskaGodina" ]
+              } ]
+            }, {
+              "name" : "imenovanjeBrancheva",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 16
+                },
+                "name" : "visible",
+                "highlight" : [ "imenovanjeBrancheva" ]
+              } ]
+            }, {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 18
+                },
+                "name" : "visible",
+                "highlight" : [ "submitBtn" ]
+              } ]
+            }, {
+              "name" : "labels1",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "visible",
+                "highlight" : [ "labels1" ]
+              } ]
+            }, {
+              "name" : "labels2",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "visible",
+                "highlight" : [ "labels2" ]
+              } ]
+            }, {
+              "name" : "labels3",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "visible",
+                "highlight" : [ "labels3" ]
+              } ]
+            } ]
+          }, {
+            "name" : "in the center",
+            "place" : {
+              "filePath" : "zadatak3a.gspec",
+              "lineNumber" : 22
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 24
+                },
+                "name" : "centered all inside body",
+                "highlight" : [ "form", "body" ]
+              } ]
+            } ]
+          }, {
+            "name" : "number of labels",
+            "place" : {
+              "filePath" : "zadatak3a.gspec",
+              "lineNumber" : 26
+            },
+            "objects" : [ {
+              "name" : "labels1",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 28
+                },
+                "name" : "count any labels* is 3",
+                "highlight" : [ "labels2", "labels1", "labels3" ]
+              } ]
+            }, {
+              "name" : "labels2",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 28
+                },
+                "name" : "count any labels* is 3",
+                "highlight" : [ "labels2", "labels1", "labels3" ]
+              } ]
+            }, {
+              "name" : "labels3",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 28
+                },
+                "name" : "count any labels* is 3",
+                "highlight" : [ "labels2", "labels1", "labels3" ]
+              } ]
+            } ]
+          }, {
+            "name" : "above section",
+            "place" : {
+              "filePath" : "zadatak3a.gspec",
+              "lineNumber" : 30
+            },
+            "objects" : [ {
+              "name" : "url",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 32
+                },
+                "name" : "above akademskaGodina",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "url",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "akademskaGodina",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "43px"
+                } ],
+                "highlight" : [ "url", "akademskaGodina" ]
+              } ]
+            }, {
+              "name" : "akademskaGodina",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 34
+                },
+                "name" : "above imenovanjeBrancheva",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "akademskaGodina",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "imenovanjeBrancheva",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "44px"
+                } ],
+                "highlight" : [ "akademskaGodina", "imenovanjeBrancheva" ]
+              } ]
+            }, {
+              "name" : "imenovanjeBrancheva",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 36
+                },
+                "name" : "above submitBtn",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "imenovanjeBrancheva",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "submitBtn",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "21px"
+                } ],
+                "highlight" : [ "imenovanjeBrancheva", "submitBtn" ]
+              } ]
+            } ]
+          }, {
+            "name" : "below section",
+            "place" : {
+              "filePath" : "zadatak3a.gspec",
+              "lineNumber" : 38
+            },
+            "objects" : [ {
+              "name" : "akademskaGodina",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 40
+                },
+                "name" : "below url",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "akademskaGodina",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "url",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "43px"
+                } ],
+                "highlight" : [ "akademskaGodina", "url" ]
+              } ]
+            }, {
+              "name" : "imenovanjeBrancheva",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 42
+                },
+                "name" : "below akademskaGodina",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "imenovanjeBrancheva",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "akademskaGodina",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "44px"
+                } ],
+                "highlight" : [ "imenovanjeBrancheva", "akademskaGodina" ]
+              } ]
+            }, {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 44
+                },
+                "name" : "below imenovanjeBrancheva",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "submitBtn",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "imenovanjeBrancheva",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "21px"
+                } ],
+                "highlight" : [ "submitBtn", "imenovanjeBrancheva" ]
+              } ]
+            } ]
+          }, {
+            "name" : "text",
+            "place" : {
+              "filePath" : "zadatak3a.gspec",
+              "lineNumber" : 46
+            },
+            "objects" : [ {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3a.gspec",
+                  "lineNumber" : 48
+                },
+                "name" : "css font-family contains \"sans-serif\"",
+                "highlight" : [ "submitBtn" ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "submitBtn" : {
+              "area" : [ 324, 447, 363, 33 ]
+            },
+            "form" : {
+              "area" : [ 304, 182, 400, 314 ]
+            },
+            "imenovanjeBrancheva" : {
+              "area" : [ 324, 394, 363, 32 ]
+            },
+            "labels2" : {
+              "area" : [ 324, 296, 363, 18 ]
+            },
+            "labels1" : {
+              "area" : [ 324, 220, 363, 18 ]
+            },
+            "body" : {
+              "area" : [ 0, 0, 1008, 680 ]
+            },
+            "url" : {
+              "area" : [ 324, 243, 363, 32 ]
+            },
+            "akademskaGodina" : {
+              "area" : [ 324, 318, 363, 32 ]
+            },
+            "labels3" : {
+              "area" : [ 324, 371, 363, 18 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        } ],
+        "time" : 1636812815876,
+        "type" : "node"
+      } ],
+      "time" : 1636812812539,
+      "type" : "node"
+    } ]
+  }
+}
