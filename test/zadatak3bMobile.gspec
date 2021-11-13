@@ -1,18 +1,18 @@
 @objects
     body body
     form .form
-    url #url
-    akademskaGodina #akademskaGodina
-    imenovanjeBrancheva #imenovanjeBrancheva
+    odabirVjezbe #odabirVjezbe
+    odabirZadatka #odabirZadatka
+    komentar #komentar
     submitBtn   #submit-btn
     labels*  form div label
 
 = visibility =
-    form:
+    odabirVjezbe:
         visible
-    akademskaGodina:
+    odabirZadatka:
         visible
-    imenovanjeBrancheva:
+    komentar:
         visible
     submitBtn:
         visible
@@ -25,32 +25,30 @@
 
 = number of labels =
     labels*:
-        count any labels* is 3
+        count any labels* is 4
 
 = above section =
-    url:
-        above akademskaGodina
-    akademskaGodina:
-        above imenovanjeBrancheva
-    imenovanjeBrancheva:
+    odabirVjezbe:
+        above odabirZadatka
+    odabirZadatka:
+        above komentar
+    komentar:
         above submitBtn
 
 = below section =
-    akademskaGodina:
-        below url
-    imenovanjeBrancheva:
-        below akademskaGodina
+    odabirZadatka:
+        below odabirVjezbe
+    komentar:
+        below odabirZadatka
     submitBtn:
-        below imenovanjeBrancheva
+        below komentar
 
 = text =
     submitBtn:
         css font-family contains "sans-serif" 
 
 = height section =
-    form:
-        height 94 to 96% of body/height
 
 = width section =
     form:
-        width 95 to 100% of body/width
+        width 94 to 100% of body/width 

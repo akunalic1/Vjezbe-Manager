@@ -1,0 +1,422 @@
+{
+  "testId" : "1-zadatak3btablet.gspec",
+  "name" : "zadatak3bTablet.gspec",
+  "report" : {
+    "nodes" : [ {
+      "name" : "Simple check",
+      "status" : "info",
+      "nodes" : [ {
+        "name" : "check  zadatak3bTablet.gspec --url http://localhost/zadaci.html --size 700x768 --htmlreport izvjestaji_3bTablet",
+        "status" : "info",
+        "nodes" : [ {
+          "name" : "Check layout: zadatak3bTablet.gspec included tags: ",
+          "status" : "info",
+          "time" : 1636832622808,
+          "sections" : [ {
+            "name" : "visibility",
+            "place" : {
+              "filePath" : "zadatak3bTablet.gspec",
+              "lineNumber" : 10
+            },
+            "objects" : [ {
+              "name" : "odabirVjezbe",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 12
+                },
+                "name" : "visible",
+                "highlight" : [ "odabirVjezbe" ]
+              } ]
+            }, {
+              "name" : "odabirZadatka",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 14
+                },
+                "name" : "visible",
+                "highlight" : [ "odabirZadatka" ]
+              } ]
+            }, {
+              "name" : "komentar",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 16
+                },
+                "name" : "visible",
+                "highlight" : [ "komentar" ]
+              } ]
+            }, {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 18
+                },
+                "name" : "visible",
+                "highlight" : [ "submitBtn" ]
+              } ]
+            }, {
+              "name" : "labels1",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "visible",
+                "highlight" : [ "labels1" ]
+              } ]
+            }, {
+              "name" : "labels2",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "visible",
+                "highlight" : [ "labels2" ]
+              } ]
+            }, {
+              "name" : "labels3",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "visible",
+                "highlight" : [ "labels3" ]
+              } ]
+            }, {
+              "name" : "labels4",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 20
+                },
+                "name" : "visible",
+                "highlight" : [ "labels4" ]
+              } ]
+            } ]
+          }, {
+            "name" : "in the center",
+            "place" : {
+              "filePath" : "zadatak3bTablet.gspec",
+              "lineNumber" : 22
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 24
+                },
+                "name" : "centered all inside body",
+                "highlight" : [ "form", "body" ]
+              } ]
+            } ]
+          }, {
+            "name" : "number of labels",
+            "place" : {
+              "filePath" : "zadatak3bTablet.gspec",
+              "lineNumber" : 26
+            },
+            "objects" : [ {
+              "name" : "labels1",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 28
+                },
+                "name" : "count any labels* is 4",
+                "highlight" : [ "labels2", "labels1", "labels4", "labels3" ]
+              } ]
+            }, {
+              "name" : "labels2",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 28
+                },
+                "name" : "count any labels* is 4",
+                "highlight" : [ "labels2", "labels1", "labels4", "labels3" ]
+              } ]
+            }, {
+              "name" : "labels3",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 28
+                },
+                "name" : "count any labels* is 4",
+                "highlight" : [ "labels2", "labels1", "labels4", "labels3" ]
+              } ]
+            }, {
+              "name" : "labels4",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 28
+                },
+                "name" : "count any labels* is 4",
+                "highlight" : [ "labels2", "labels1", "labels4", "labels3" ]
+              } ]
+            } ]
+          }, {
+            "name" : "above section",
+            "place" : {
+              "filePath" : "zadatak3bTablet.gspec",
+              "lineNumber" : 30
+            },
+            "objects" : [ {
+              "name" : "odabirVjezbe",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 32
+                },
+                "name" : "above odabirZadatka",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "odabirVjezbe",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "odabirZadatka",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "43px"
+                } ],
+                "highlight" : [ "odabirVjezbe", "odabirZadatka" ]
+              } ]
+            }, {
+              "name" : "odabirZadatka",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 34
+                },
+                "name" : "above komentar",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "odabirZadatka",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "komentar",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "119px"
+                } ],
+                "highlight" : [ "odabirZadatka", "komentar" ]
+              } ]
+            }, {
+              "name" : "komentar",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 36
+                },
+                "name" : "above submitBtn",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "komentar",
+                    "edge" : "bottom"
+                  },
+                  "to" : {
+                    "object" : "submitBtn",
+                    "edge" : "top"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "21px"
+                } ],
+                "highlight" : [ "komentar", "submitBtn" ]
+              } ]
+            } ]
+          }, {
+            "name" : "below section",
+            "place" : {
+              "filePath" : "zadatak3bTablet.gspec",
+              "lineNumber" : 38
+            },
+            "objects" : [ {
+              "name" : "odabirZadatka",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 40
+                },
+                "name" : "below odabirVjezbe",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "odabirZadatka",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "odabirVjezbe",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "43px"
+                } ],
+                "highlight" : [ "odabirZadatka", "odabirVjezbe" ]
+              } ]
+            }, {
+              "name" : "komentar",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 42
+                },
+                "name" : "below odabirZadatka",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "komentar",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "odabirZadatka",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "119px"
+                } ],
+                "highlight" : [ "komentar", "odabirZadatka" ]
+              } ]
+            }, {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 44
+                },
+                "name" : "below komentar",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "submitBtn",
+                    "edge" : "top"
+                  },
+                  "to" : {
+                    "object" : "komentar",
+                    "edge" : "bottom"
+                  },
+                  "expectedDistance" : ">= 0px",
+                  "realDistance" : "21px"
+                } ],
+                "highlight" : [ "submitBtn", "komentar" ]
+              } ]
+            } ]
+          }, {
+            "name" : "text",
+            "place" : {
+              "filePath" : "zadatak3bTablet.gspec",
+              "lineNumber" : 46
+            },
+            "objects" : [ {
+              "name" : "submitBtn",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 48
+                },
+                "name" : "css font-family contains \"sans-serif\"",
+                "highlight" : [ "submitBtn" ]
+              } ]
+            } ]
+          }, {
+            "name" : "width section",
+            "place" : {
+              "filePath" : "zadatak3bTablet.gspec",
+              "lineNumber" : 52
+            },
+            "objects" : [ {
+              "name" : "form",
+              "specs" : [ {
+                "status" : "info",
+                "place" : {
+                  "filePath" : "zadatak3bTablet.gspec",
+                  "lineNumber" : 54
+                },
+                "name" : "width 78 to 82% of body/width",
+                "meta" : [ {
+                  "from" : {
+                    "object" : "form",
+                    "edge" : "left"
+                  },
+                  "to" : {
+                    "object" : "form",
+                    "edge" : "right"
+                  },
+                  "expectedDistance" : "78 to 82% [536 to 564px]",
+                  "realDistance" : "79% [550px]"
+                } ],
+                "highlight" : [ "form" ]
+              } ]
+            } ]
+          } ],
+          "objects" : {
+            "odabirVjezbe" : {
+              "area" : [ 88, 138, 513, 32 ]
+            },
+            "odabirZadatka" : {
+              "area" : [ 88, 213, 513, 32 ]
+            },
+            "submitBtn" : {
+              "area" : [ 88, 548, 513, 34 ]
+            },
+            "form" : {
+              "area" : [ 68, 77, 550, 522 ]
+            },
+            "komentar" : {
+              "area" : [ 88, 364, 513, 163 ]
+            },
+            "labels2" : {
+              "area" : [ 88, 190, 513, 18 ]
+            },
+            "labels1" : {
+              "area" : [ 88, 115, 513, 18 ]
+            },
+            "body" : {
+              "area" : [ 0, 0, 688, 677 ]
+            },
+            "labels4" : {
+              "area" : [ 88, 342, 513, 18 ]
+            },
+            "labels3" : {
+              "area" : [ 88, 266, 513, 18 ]
+            }
+          },
+          "screenshot" : "layout-1-screenshot.png",
+          "type" : "layout"
+        } ],
+        "time" : 1636832620388,
+        "type" : "node"
+      } ],
+      "time" : 1636832612144,
+      "type" : "node"
+    } ]
+  }
+}

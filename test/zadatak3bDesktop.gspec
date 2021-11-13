@@ -48,8 +48,7 @@
         css font-family contains "sans-serif" 
 
 = height section =
-    form:
-        height 70 to 75% of body/height
+
 
 = width section =
     form:
