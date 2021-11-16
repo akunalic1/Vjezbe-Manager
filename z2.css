@@ -89,7 +89,7 @@ body{
     background-repeat: no-repeat;
     background-position:center;
 }
-@media (max-width: 800px){
+@media (max-width: 799px){
     .grafovi{
         width: 100%;
     }
