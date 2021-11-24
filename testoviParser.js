@@ -1,20 +1,36 @@
-
 let TestoviParser  = (function(){
-    var tacnost = 0, procenat, greske = [];
+    let tacnost = 0, procenat;
+    let greske = [];
     const dajTacnost = function(JsonString){
-        var obj = JSON.parse(JsonString);
-        console.log(obj);
-        var listaProslihTestova = obj.passes;
-        var listaPalihTestova = obj.failures;
+        let obj = JSON.parse(JsonString);
+       // console.log(obj);
+       let ukupanBrojTestova = obj.stats.tests;
+       let brojUspjesnihTestova = obj.stats.passes;
+       let brojPalihTestova = obj.stats.failures;
+       let brojNeizvrsenihTestova = obj.stats.pending;
+
+       let listaProslihTestova = obj.passes;
+       let listaPalihTestova = obj.failures;
+       let listaNeizvrsenihtestova = obj.pending;
+
+        console.log("Broj palih: " + Object.keys(listaPalihTestova).length)
+        console.log("Broj proslih: " + Object.keys
+        (listaProslihTestova).length)
+        tacnost = 0.0;
+        if(brojUspjesnihTestova != 0)
+        tacnost = brojUspjesnihTestova/ukupanBrojTestova;
         
-        if(Object.keys(listaProslihTestova).length != 0)
-        tacnost = (Object.values(listaProslihTestova).length + Object.keys(listaPalihTestova).length)/(Object.keys(listaProslihTestova).length);
+        greske = [];
         
-       
-        for(var i = 0; i < Object.keys(listaPalihTestova).length; i++){
-            console.log(listaPalihTestova[i].title)
+        for(var i = 0; i < brojPalihTestova; i++){
             greske.push(listaPalihTestova[i].title);
         }
+        if(brojNeizvrsenihTestova != ukupanBrojTestova)
+            for(var i = 0; i < brojNeizvrsenihTestova; i++){
+                greske.push(listaNeizvrsenihtestova[i].title);
+            }
+        else
+            greske.push("Testovi se ne mogu izvršiti")
         tacnost = tacnost*100.0;
         if(tacnost % 1 != 0.0)
             tacnost = tacnost.toFixed(1);
@@ -31,4 +47,4 @@ let TestoviParser  = (function(){
         dajTacnost
     }
 }());
-TestoviParser.dajTacnost("{\"stats\":{\"suites\":2,\"tests\":2,\"passes\":2,\"pending\":0,\"failures\":0,\"start\":\"2021-11-05T15:00:26.343Z\",\"end\":\"2021-11-05T15:00:26.352Z\",\"duration\":9},\"tests\":[{\"title\":\"should draw 3 rows when parameter are 2,3\",\"fullTitle\":\"Tabela crtaj() should draw 3 rows when parameter are 2,3\",\"file\":null,\"duration\":1,\"currentRetry\":0,\"speed\":\"fast\",\"err\":{}},{\"title\":\"should draw 2 columns in row 2 when parameter are 2,3\",\"fullTitle\":\"Tabela crtaj() should draw 2 columns in row 2 when parameter are 2,3\",\"file\":null,\"duration\":0,\"currentRetry\":0,\"speed\":\"fast\",\"err\":{}}],\"pending\":[],\"failures\":[],\"passes\":[{\"title\":\"should draw 3 rows when parameter are 2,3\",\"fullTitle\":\"Tabela crtaj() should draw 3 rows when parameter are 2,3\",\"file\":null,\"duration\":1,\"currentRetry\":0,\"speed\":\"fast\",\"err\":{}},{\"title\":\"should draw 2 columns in row 2 when parameter are 2,3\",\"fullTitle\":\"Tabela crtaj() should draw 2 columns in row 2 when parameter are 2,3\",\"file\":null,\"duration\":0,\"currentRetry\":0,\"speed\":\"fast\",\"err\":{}}]}");
+
