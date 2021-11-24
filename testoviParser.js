@@ -1,9 +1,31 @@
 
 let TestoviParser  = (function(){
-    var tacnost, procenat, greske;
+    var tacnost = 0, procenat, greske = [];
     const dajTacnost = function(JsonString){
         var obj = JSON.parse(JsonString);
         console.log(obj);
+        var listaProslihTestova = obj.passes;
+        var listaPalihTestova = obj.failures;
+        
+        if(Object.keys(listaProslihTestova).length != 0)
+        tacnost = (Object.values(listaProslihTestova).length + Object.keys(listaPalihTestova).length)/(Object.keys(listaProslihTestova).length);
+        
+       
+        for(var i = 0; i < Object.keys(listaPalihTestova).length; i++){
+            console.log(listaPalihTestova[i].title)
+            greske.push(listaPalihTestova[i].title);
+        }
+        tacnost = tacnost*100.0;
+        if(tacnost % 1 != 0.0)
+            tacnost = tacnost.toFixed(1);
+        console.log({
+            'tacnost': tacnost + "%",
+            'greske': JSON.stringify(greske)
+        })
+        return{
+            'tacnost': tacnost + "%",
+            'greske': JSON.stringify(greske)
+        }
     }
     return {
         dajTacnost
