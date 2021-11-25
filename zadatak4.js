@@ -11,29 +11,21 @@ describe('TestoviParser', function() {
   });
   it('---TEST 3---', function() {
     let objekat = TestoviParser.porediRezultate(stringTest2PR, stringTest4PR)
-    console.log("Teeeeeeeeeeeest 3" + objekat.greske)
-    console.log("Velicina u testu 3: " + objekat.greske.length)
     assert.equal(Object.keys(objekat.greske).length, 1,"Broj gresaka");
     assert.equal(objekat.promjena, "50%", "Promjena")
   });
   it('---TEST 4---', function() {
     let objekat = TestoviParser.porediRezultate(stringTest5PR, stringTest2PR)
-    console.log(objekat.greske)
-    console.log("Velicina u testu 34: " + objekat.greske)
     assert.equal(Object.keys(objekat.greske).length, 2,"Broj gresaka");
     assert.equal(objekat.promjena, "50%", "Promjena")
   });
   it('---TEST 5---', function() {
     let objekat = TestoviParser.porediRezultate(stringTest6PR, stringTest7PR)
-    console.log(objekat.greske)
-    console.log("Velicina u testu 5: " + objekat.greske)
     assert.equal(Object.keys(objekat.greske).length, 2,"Broj gresaka");
     assert.equal(objekat.promjena, "100%", "Promjena")
   });
   it('---TEST 6---', function() {
     let objekat = TestoviParser.porediRezultate(stringTest8PR, stringTest7PR)
-    console.log(objekat.greske)
-    console.log("Velicina u testu 5: " + objekat.greske)
     assert.equal(Object.keys(objekat.greske).length, 4,"Broj gresaka");
     assert.equal(objekat.promjena, "100%", "Promjena")
   });
