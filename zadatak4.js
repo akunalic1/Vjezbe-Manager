@@ -30,6 +30,13 @@ describe('TestoviParser', function() {
     assert.equal(Object.keys(objekat.greske).length, 2,"Broj gresaka");
     assert.equal(objekat.promjena, "100%", "Promjena")
   });
+  it('---TEST 6---', function() {
+    let objekat = TestoviParser.porediRezultate(stringTest8PR, stringTest7PR)
+    console.log(objekat.greske)
+    console.log("Velicina u testu 5: " + objekat.greske)
+    assert.equal(Object.keys(objekat.greske).length, 4,"Broj gresaka");
+    assert.equal(objekat.promjena, "100%", "Promjena")
+  });
  });
 });
 
@@ -51,4 +58,6 @@ describe('TestoviParser', function() {
     var stringTest6PR = "{\"tacnost\":\"25%\",\"greske\":[\"Test (2) nije prošao\",\"Test (3) nije prošao\",\"Test (4) nije prošao\"]}"
 
     var stringTest7PR = "{\"tacnost\":\"0%\",\"greske\":[\"Test (1) nije prošao\",\"Test (2) nije prošao\",\"Test (3) nije prošao\"]}"
+
+    var stringTest8PR = "{\"tacnost\":\"0%\",\"greske\":[\"Testovi se ne mogu izvršiti\"]}";
 }
