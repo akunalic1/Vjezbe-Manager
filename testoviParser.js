@@ -1,11 +1,12 @@
 let TestoviParser = (function () {
-  /**  
-  * !                                   dajTacnost(string)
-  */
+  /**
+   * !                                   dajTacnost(string)
+   */
   const dajTacnost = function (JsonString) {
-    let tacnost = 0, greske = [];
+    let tacnost = 0,
+      greske = [];
     let obj = JSON.parse(JsonString);
- 
+
     let ukupanBrojTestova = obj.stats.tests;
     let brojUspjesnihTestova = obj.stats.passes;
     let brojPalihTestova = obj.stats.failures;
@@ -14,7 +15,7 @@ let TestoviParser = (function () {
     let listaPalihTestova = obj.failures;
     let listaNeizvrsenihtestova = obj.pending;
 
-   // tacnost = 0.0;
+    // tacnost = 0.0;
     if (brojUspjesnihTestova != 0)
       tacnost = brojUspjesnihTestova / ukupanBrojTestova;
 
@@ -41,9 +42,9 @@ let TestoviParser = (function () {
       greske: greske,
     };
   };
-  /**  
-  * !                                   porediRezultate(string, string)
-  */
+  /**
+   * !                                   porediRezultate(string, string)
+   */
   const porediRezultate = function (rezultat1, rezultat2) {
     var promjena;
     let greske = [];
@@ -72,7 +73,7 @@ let TestoviParser = (function () {
       difference2.sort(function (a, b) {
         return a.localeCompare(b);
       });
-      greske = [];
+      //greske = [];
       greske = greske.concat(difference1);
       greske = greske.concat(difference2);
       let procenatNespjehaRezultata2 = (100 - parseFloat(obj2.tacnost)) / 100.0;
