@@ -1,20 +1,20 @@
 let TestoviParser = (function () {
-  let tacnost = 0,
-    procenat;
-  let greske = [];
+  /**  
+  * !                                   dajTacnost(string)
+  */
   const dajTacnost = function (JsonString) {
+    let tacnost = 0, greske = [];
     let obj = JSON.parse(JsonString);
-    //console.log(JsonString);
+ 
     let ukupanBrojTestova = obj.stats.tests;
     let brojUspjesnihTestova = obj.stats.passes;
     let brojPalihTestova = obj.stats.failures;
     let brojNeizvrsenihTestova = obj.stats.pending;
 
-    let listaProslihTestova = obj.passes;
     let listaPalihTestova = obj.failures;
     let listaNeizvrsenihtestova = obj.pending;
 
-    tacnost = 0.0;
+   // tacnost = 0.0;
     if (brojUspjesnihTestova != 0)
       tacnost = brojUspjesnihTestova / ukupanBrojTestova;
 
@@ -41,6 +41,9 @@ let TestoviParser = (function () {
       greske: greske,
     };
   };
+  /**  
+  * !                                   porediRezultate(string, string)
+  */
   const porediRezultate = function (rezultat1, rezultat2) {
     var promjena;
     let greske = [];
@@ -55,18 +58,6 @@ let TestoviParser = (function () {
       greske2.every((item) => greske1.includes(item))
     ) {
       promjena = JSON.parse(rezultat2).tacnost;
-    } else {
-      let difference = greske1.filter((x) => !greske2.includes(x));
-      promjena =
-        ((difference.length + greske2.length) /
-          (difference.length +
-            (greske2.length * 100) / parseInt(100 - rezultat2.tacnost))) *
-        100;
-    }
-    if (
-      greske1.every((item) => greske2.includes(item)) &&
-      greske2.every((item) => greske1.includes(item))
-    ) {
       greske = greske2;
       greske.sort(function (a, b) {
         return a.localeCompare(b);
@@ -95,6 +86,7 @@ let TestoviParser = (function () {
           100 +
         "%";
     }
+
     console.log(
       JSON.stringify({
         promjena: promjena,
