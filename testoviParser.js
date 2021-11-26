@@ -73,7 +73,6 @@ let TestoviParser = (function () {
       difference2.sort(function (a, b) {
         return a.localeCompare(b);
       });
-      //greske = [];
       greske = greske.concat(difference1);
       greske = greske.concat(difference2);
       let procenatNespjehaRezultata2 = (100 - parseFloat(obj2.tacnost)) / 100.0;
