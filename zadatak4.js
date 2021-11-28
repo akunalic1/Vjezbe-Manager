@@ -2,43 +2,36 @@ let assert = chai.assert;
 describe('TestoviParser', function() {
  describe('porediRezultate()', function() {
    it('---TEST 1---', function() {
-    console.log("--------------TEST 1---_-------------")
      let objekat = TestoviParser.porediRezultate(stringTest1PR, stringTest1PR)
      assert.equal(Object.keys(objekat.greske).length, 0,"Broj gresaka");
    });
    it('---TEST 2---', function() {
-    console.log("--------------TEST 2---_-------------")
     let objekat = TestoviParser.porediRezultate(stringTest1PR, stringTest2PR)
     assert.equal(Object.keys(objekat.greske).length, 0,"Broj gresaka");
     assert.equal(objekat.promjena, "0%","Promjena");
   });
   it('---TEST 3---', function() {
-    console.log("--------------TEST 3---_-------------")
     let objekat = TestoviParser.porediRezultate(stringTest2PR, stringTest3PR)
     assert.equal(Object.keys(objekat.greske).length, 2,"Broj gresaka");
     assert.equal(objekat.promjena, "66.7%", "Promjena")
   });
   it('---TEST 4---', function() {
-    console.log("--------------TEST 4---_-------------")
     let objekat = TestoviParser.porediRezultate(stringTest3PR, stringTest2PR)
     assert.equal(Object.keys(objekat.greske).length, 0,"Broj gresaka");
     assert.equal(objekat.promjena, "100%", "Promjena")
   });
   it('---TEST 5---', function() {
-    console.log("--------------TEST 5---_-------------")
     let objekat = TestoviParser.porediRezultate(stringTest2PR, stringTest4PR)
     assert.equal(Object.keys(objekat.greske).length, 6,"Broj gresaka");
     assert.equal(objekat.promjena, "0%", "Promjena")
   });
   it('---TEST 6---', function() {
-    console.log("--------------TEST 6---_-------------")
     let objekat = TestoviParser.porediRezultate(string4padaju2prolaze, string2prolaze4padaju)
     assert.equal(Object.keys(objekat.greske).length, 4,"Broj gresaka");
     assert.equal(objekat.promjena, "33.3%", "Promjena")
   });
   it('---TEST 7---', function() {
-    console.log("--------------TEST 7---_-------------")
-    let objekat = TestoviParser.porediRezultate(string4padaju2prolaze, string7testova3prolaze4padaju)
+   let objekat = TestoviParser.porediRezultate(string4padaju2prolaze, string7testova3prolaze4padaju)
     assert.equal(Object.keys(objekat.greske).length, 0,"Broj gresaka");
     assert.equal(objekat.promjena, "57.1%", "Promjena")
   });

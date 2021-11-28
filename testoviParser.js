@@ -60,8 +60,7 @@ let TestoviParser = (function () {
 
     let obj1 = JSON.parse(rezultat1);
     let obj2 = JSON.parse(rezultat2);
-    console.log(obj1)
-    
+   
     let greske1 = Object.values(obj1.failures);
     let greske2 = Object.values(obj2.failures);
 
@@ -69,19 +68,15 @@ let TestoviParser = (function () {
     let nasloviSvihTestovaRezultata1=[];
     Object.values(obj1.tests).forEach((e)=>{nasloviSvihTestovaRezultata1.push(e.title);})
 
-   console.log("Svi testovi rez 1: " + nasloviSvihTestovaRezultata1)
-
+  
     let nasloviSvihTestovaKojiPadajuUReultatu1=[];
     greske1.forEach((e)=>{nasloviSvihTestovaKojiPadajuUReultatu1.push(e.title);})
     
-    console.log("Testovi koji padaju u rez1 "+nasloviSvihTestovaKojiPadajuUReultatu1)
     let nasloviSvihTestovaRezultata2=[];
     Object.values(obj2.tests).forEach((e)=>{nasloviSvihTestovaRezultata2.push(e.title);})
-    console.log("Svi testovi rez 2: " + nasloviSvihTestovaRezultata2)
     
     let nasloviSvihTestovaKojiPadajuUReultatu2=[];
     greske2.forEach((e)=>{nasloviSvihTestovaKojiPadajuUReultatu2.push(e.title);})
-console.log("Testovi koji padaju u rez 2 "+nasloviSvihTestovaKojiPadajuUReultatu2)
 
     let brojTestovaURez2 = obj2.stats.tests;
     let brojTestovaKojiPadajuURez2 = obj2.stats.failures
@@ -90,7 +85,6 @@ console.log("Testovi koji padaju u rez 2 "+nasloviSvihTestovaKojiPadajuUReultatu
       nasloviSvihTestovaRezultata2.every((item) => nasloviSvihTestovaRezultata1.includes(item))
     ) {
       promjena = TestoviParser.dajTacnost(rezultat2).tacnost;
-      console.log("Promjena: " + promjena)
       greske = nasloviSvihTestovaKojiPadajuUReultatu2;
       greske.sort(function (a, b) {
         return a.localeCompare(b);
@@ -112,7 +106,6 @@ console.log("Testovi koji padaju u rez 2 "+nasloviSvihTestovaKojiPadajuUReultatu
           (difference1.length + brojTestovaURez2)) *
           100;
     }
-    console.log(typeof promjena)
     if(parseFloat(promjena) %1 != 0.0)
     promjena = parseFloat(promjena).toFixed(1);
     else
