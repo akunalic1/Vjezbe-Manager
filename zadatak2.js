@@ -1,29 +1,34 @@
 let assert = chai.assert;
 describe('TestoviParser', function() {
  describe('dajTacnost()', function() {
-   it('Ocekivana vrijednost procenta 100%', function() {
+   it('------ TEST 1 ------', function() {
      let objekat = TestoviParser.dajTacnost(stringTest1)
      assert.equal(objekat.tacnost, "100%","Procenat");
    });
-   it('Ocekivana vrijednost procenta 50%', function() {
+   it('------ TEST 2 ------', function() {
     let objekat = TestoviParser.dajTacnost(stringTest2)
     assert.equal(objekat.tacnost, "50%","Procenat");
   });
-  it('Ocekivana vrijednost procenta 33.3%', function() {
+  it('------ TEST 3 ------', function() {
     let objekat = TestoviParser.dajTacnost(stringTest3)
     assert.equal(objekat.tacnost, "33.3%","Procenat");
   });
-  it('Ocekivana vrijednost procenta 0%', function() {
+  it('------ TEST 4 ------', function() {
     let objekat = TestoviParser.dajTacnost(stringTestNijedanTestSeNijeIZvrio)
     assert.equal(objekat.tacnost, "0%","Procenat");
   });
-  it('Ocekivana vrijednost procenta 0%', function() {
+  it('------ TEST 5 ------', function() {
     let objekat = TestoviParser.dajTacnost(stringTestSviPadaju)
     assert.equal(objekat.tacnost, "0%","Procenat");
   });
-  it('Ocekivana vrijednost procenta 25%', function() {
+  it('------ TEST 6 ------', function() {
     let objekat = TestoviParser.dajTacnost(stringJedanProlazi)
     assert.equal(objekat.tacnost, "25%","Procenat");
+  });
+  it('------ TEST 7 ------', function() {
+    let objekat = TestoviParser.dajTacnost("nevalidan json format &//&/&/?)(")
+    assert.equal(objekat.tacnost, "0%","Procenat");
+    assert.equal(objekat.greske, "Testovi se ne mogu izvršiti", "Greske")
   });
  });
 });
