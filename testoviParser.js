@@ -66,17 +66,17 @@ let TestoviParser = (function () {
 
     let svitestovi = obj1.tests;
     let nasloviSvihTestovaRezultata1=[];
-    Object.values(obj1.tests).forEach((e)=>{nasloviSvihTestovaRezultata1.push(e.title);})
+    Object.values(obj1.tests).forEach((e)=>{nasloviSvihTestovaRezultata1.push(e.fullTitle);})
 
   
     let nasloviSvihTestovaKojiPadajuUReultatu1=[];
-    greske1.forEach((e)=>{nasloviSvihTestovaKojiPadajuUReultatu1.push(e.title);})
+    greske1.forEach((e)=>{nasloviSvihTestovaKojiPadajuUReultatu1.push(e.fullTitle);})
     
     let nasloviSvihTestovaRezultata2=[];
-    Object.values(obj2.tests).forEach((e)=>{nasloviSvihTestovaRezultata2.push(e.title);})
+    Object.values(obj2.tests).forEach((e)=>{nasloviSvihTestovaRezultata2.push(e.fullTitle);})
     
     let nasloviSvihTestovaKojiPadajuUReultatu2=[];
-    greske2.forEach((e)=>{nasloviSvihTestovaKojiPadajuUReultatu2.push(e.title);})
+    greske2.forEach((e)=>{nasloviSvihTestovaKojiPadajuUReultatu2.push(e.fullTitle);})
 
     let brojTestovaURez2 = obj2.stats.tests;
     let brojTestovaKojiPadajuURez2 = obj2.stats.failures
