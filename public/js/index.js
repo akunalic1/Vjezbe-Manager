@@ -1,23 +1,98 @@
 const express = require('express')
-const bodyParser = require('body-parser')
+const crypto = require('crypto')
+const fs = require('fs')
 
 const app = express();
 
 // middlewares
-app.use(bodyParser.urlencoded())
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 app.use(express.static('public'));
 app.use(express.static('public/html'));
 
 //Serves all the request which includes /images in the url from Images folder
 //app.use('/images', express.static(__dirname + '/Images'));
 
-//port
+//  ?port
 let PORT = 3000;
 
-app.get('/',(req, res) => {
+app.get('/', (req, res) => {
     //console.log(req);
     res.setHeader('content-type', 'application/json');
-    res.send(JSON.stringify({message: 'Otvorili ste port 3000'}))
+    res.send(JSON.stringify({ message: 'Otvorili ste port 3000' }))
 })
-
+app.get('/vjezbe/', (req, res) => {
+    res.setHeader('contet-type', 'application/json');
+    res.status(200);
+    let data = procitajVjezbeCSV()
+    console.log(data)
+    res.send({
+        brojVjezbi: 10,
+        brojZadataka: data
+    });
+})
+app.post('/vjezbe', (req, res) => {
+    res.setHeader('content-type', 'application/json')
+    console.log(typeof req.body.brojZadataka)
+    let odgovor = kreirajOdgovor(req.body)
+    if(!odgovor.pogresno){
+        zapisiUCSV(req.body.brojZadataka)
+        res.send(procitajVjezbeCSV())
+    }else{
+        res.send({
+            status: odgovor.status,
+            data: odgovor.data
+        })
+    }
+})
 app.listen(PORT);
+
+//  ?pomocne funkcije
+
+function procitajVjezbeCSV() {
+    return izdvoji(fs.readFileSync('vjezbe.csv', 'utf-8'));
+}
+function izdvoji(data) {
+    let lista = [];
+    let redovi = (data.toString()).split('\r\n');
+    let prviRed = true;
+    for (let red of redovi) {
+        if (prviRed) {
+            prviRed = !prviRed;
+            continue;
+        }
+        lista.push(parseInt(red.split(',')[1]));
+    }
+    lista.pop();
+    return lista;
+}
+function zapisiUCSV(brojVjezbi){
+    let data = '';
+    for(let ii in brojVjezbi){
+        data+= crypto.randomBytes(3).toString('hex') + ',' + brojVjezbi[ii] + '\r\n';
+    }
+    fs.appendFileSync('vjezbe.csv', data, 'utf-8')
+}
+function kreirajOdgovor(responseBody){
+    let brojVjezbi = responseBody.brojVjezbi;
+    let brojZadataka = responseBody.brojZadataka;
+    let odgovor = '';
+    if(brojVjezbi < 1 || brojVjezbi > 10)
+        odgovor+='brojVjezbi,'
+    if(brojZadataka.length != brojVjezbi)
+        odgovor+='brojZadataka,'
+    for(let i in brojZadataka){
+        if(brojZadataka[i] < 1 || brojZadataka[i] > 15)
+            odgovor+='z' + i + ','
+    }
+    let pogresno = odgovor.length != 0;
+    if(pogresno){
+        odgovor = 'Pogrešan parametar ' + odgovor;
+        odgovor = odgovor.substring(0, odgovor.length - 1);
+    }
+    return {
+        "pogresno": pogresno,
+        status: 'error',
+        data: odgovor
+    }
+}
