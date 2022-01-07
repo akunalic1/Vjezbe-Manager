@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "name": "wt21p18770",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "nodemon public/js/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://akunalic1@bitbucket.org/akunalic1/wt21p18770.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/akunalic1/wt21p18770/issues"
+  },
+  "homepage": "https://bitbucket.org/akunalic1/wt21p18770#readme",
+  "description": ""
+}
