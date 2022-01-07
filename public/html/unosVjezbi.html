@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/unosVjezbi.css">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <form  id = "form">
+        <div>
+            <label for="unosBrojVjezbi">Unesite broj vjezbi:</label>
+            <input type="number" name="unosBrojVjezbi" id="unosBrojVjezbi">
+            <button type="button" id="btn" class="btn btn-primary">Otvori polja</button>
+        </div>
+        <div id="polja"></div>
+    </form>
+    <script>
+        $(document).ready(function(){  
+            console.log('usloo');
+            $('#btn').on('click',function(){
+                console.log('usloo');
+                let brVjezbi = $('#unosBrojVjezbi').val()
+               $('#polja').empty();
+                for(let i = 0; i < brVjezbi; i++){
+                    console.log(i);
+                    let div = document.createElement('div');
+                    let label = document.createElement('label');
+                    let input = document.createElement('input')
+                    div.innerHTML = `<label for="vjezba${i+1}">Unesite broj zadataka za vjezbu ${i+1}:</label>` + `<input type="number" name="vjezba${i+1}" id="vjezba${i+1}">`;
+                    $('#polja').append(div);
+                }
+       
+                $('#polja').append('<button id="submitBtn" type="submit">Završi</button>');
+                return false;
+            })
+        })
+    </script>
+</body>
+</html>
