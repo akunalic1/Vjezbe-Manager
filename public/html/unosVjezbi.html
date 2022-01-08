@@ -17,8 +17,9 @@
         </div>
         <div id="polja"></div>
     </form>
-    <script>
-        $(document).ready(function(){  
+    <script src="/js/vjezbeAjax.js">
+        /*$(document).ready(function(){  
+            console.log(typeof $('#btn'))
             console.log('usloo');
             $('#btn').on('click',function(){
                 console.log('usloo');
@@ -36,7 +37,16 @@
                 $('#polja').append('<button id="submitBtn" type="submit">Završi</button>');
                 return false;
             })
+        })*/
+    </script>
+    <script>
+        $(document).ready(function(){
+            dodajInputPolja($('#polja'), 4)
+            $('#btn').click(function(){
+                dodajInputPolja($('#polja'), $('#unosBrojVjezbi').val())
+            })
         })
+    </script> 
     </script>
 </body>
 </html>
