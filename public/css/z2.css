@@ -83,7 +83,7 @@ body{
     border:1px solid white;
     height: 10rem;
     width: 50%;
-    background-image: url("/graf.png");
+    background-image: url("/images/graf.png");
     background-size: cover;
     background-size: contain;
     background-repeat: no-repeat;

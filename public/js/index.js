@@ -28,7 +28,7 @@ app.get('/vjezbe/', (req, res) => {
     let data = procitajVjezbeCSV()
     console.log(data)
     res.send({
-        brojVjezbi: 10,
+        brojVjezbi: data.length,
         brojZadataka: data
     });
 })
@@ -59,10 +59,6 @@ function izdvoji(data) {
     let redovi = (data.toString()).split('\r\n');
     let prviRed = true;
     for (let red of redovi) {
-        if (prviRed) {
-            prviRed = !prviRed;
-            continue;
-        }
         lista.push(parseInt(red.split(',')[1]));
     }
     lista.pop();

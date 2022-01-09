@@ -8,35 +8,84 @@ function dodajInputPolja(DOMelementDIVauFormi, brojVjezbi){
          div.getElementsByTagName('input').value = 4;
          $('#polja').append(div);
      }
-
-    // $('#polja').append('<button id="submitBtn" type="submit">Pošalji zadatke</button>');
 }
-//Parametar error sadrži tekst greške ili null ako je ispravno, a data sadrži podatke okreiranoj vježbi ili null ako je bilo greške.
+
 function posaljiPodatke(vjezbeObjekat, callbackFunkcija){
-    console.log('funkcija')
-    console.log('poslan objekat' + (JSON.stringify(vjezbeObjekat)))
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/vjezbe', false);
     xhr.setRequestHeader("Content-Type", "application/json");
     
     xhr.onreadystatechange = function () {
-        // do something to response
-        console.log('---------onreadystatechange---------------')
-     //   console.log(this.responseText.);
-        console.log(this.readyState);
-        console.log(this.status);
-        console.log('0: request not initialized\n1: server connection established\n2: request received\n3: processing request\n4: request finished and response is ready')
-       // xhr.send(JSON.stringify(vjezbeObjekat));
+       /* if (this.readyState == 4 && this.status == 200) {
+            callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
+        }else{
+            callbackFunkcija(this.responseText , null) 
+        }*/
+        console.log(this.responseText);
     };
     xhr.onload = function() {
-        console.log('---------onload---------------')
-      //  console.log(this.responseText);
-        console.log(this.readyState);
-        console.log(this.status);
-        console.log('0: request not initialized\n1: server connection established\n2: request received\n3: processing request\n4: request finished and response is ready')
+      /*  if (this.readyState == 4 && this.status == 200) {
+            callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
+        }else{
+            callbackFunkcija(this.responseText , null) 
+        }*/
+        console.log(this.responseText);
     }
-    
     xhr.send(JSON.stringify(vjezbeObjekat));
 }
 
+function dohvatiPodatke(callbackFunkcija){
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/vjezbe', false);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    
+    xhr.onreadystatechange = function () {
+        console.log(this.responseText);
+       callbackFunkcija(null, this.responseText)
+    };
+    xhr.onload = function() {
+        console.log(this.responseText);
+      //  callbackFunkcija(error, data)
+    }
+    xhr.send();
+}
 
+function iscrtajVjezbe(divDOMelement, obj){
+    console.log('uslo i crta objekat' + JSON.stringify(obj))
+    console.log(typeof obj)
+    for(let i = 0; i < obj.brojVjezbi; i++){
+        let div = document.createElement('div')
+        div.classList.add('vjezba')
+        div.id =`v${i}`
+        div.innerText = `Vjezba ${i+1}`
+        let innerDiv = document.createElement('div');
+        innerDiv.classList.add('zadaci')
+        //div.appendChild(innerDiv)
+        iscrtajZadatke(innerDiv,obj.brojZadataka[i])
+        div.addEventListener('click', function(){
+            iscrtajZadatke(innerDiv, -1)                    // ! HARDKODIRANO
+        })
+        console.log(divDOMelement)
+        divDOMelement.append(div)
+        divDOMelement.append(innerDiv)
+    }
+}
+
+function iscrtajZadatke(divDOMelement, brojVjezbi){
+    if(brojVjezbi > 0){
+        for(let i = 0; i < brojVjezbi; i++){
+            let div = document.createElement('div')
+            div.classList.add('zadatak')
+            div.id =`z${i}`
+            div.innerText = `Zadatak ${i+1}`
+            divDOMelement.style.display = 'flex'
+            divDOMelement.append(div)
+        }    
+    }else{
+        if(divDOMelement.style.display === 'flex')
+            divDOMelement.style.display = 'none';
+        else
+            divDOMelement.style.display = 'flex';
+
+    }
+}
