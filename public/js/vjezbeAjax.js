@@ -1,13 +1,15 @@
 function dodajInputPolja(DOMelementDIVauFormi, brojVjezbi){
-    DOMelementDIVauFormi.innerHTML = ''
-    console.log(typeof DOMelementDIVauFormi)
-     for(let i = 0; i < brojVjezbi; i++){
-        // console.log(i);
-         let div = document.createElement('div');
-         div.innerHTML = `<label for="z${i}">Unesite broj zadataka za vjezbu ${i+1}:</label>` + `<input type="number" name="z${i}" id="z${i}" value="4">`;
-         div.getElementsByTagName('input').value = 4;
-         $('#polja').append(div);
-     }
+    if(brojVjezbi > 0 && brojVjezbi <= 15){
+        DOMelementDIVauFormi.innerHTML = ''
+        console.log(typeof DOMelementDIVauFormi)
+        for(let i = 0; i < brojVjezbi; i++){
+            // console.log(i);
+            let div = document.createElement('div');
+            div.innerHTML = `<label for="z${i}">Unesite broj zadataka za vjezbu ${i+1}:</label>` + `<input type="number" name="z${i}" id="z${i}" value="4">`;
+            div.getElementsByTagName('input').value = 4;
+            $('#polja').append(div);
+        }
+    }
 }
 
 function posaljiPodatke(vjezbeObjekat, callbackFunkcija){
@@ -16,20 +18,20 @@ function posaljiPodatke(vjezbeObjekat, callbackFunkcija){
     xhr.setRequestHeader("Content-Type", "application/json");
     
     xhr.onreadystatechange = function () {
-       /* if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+        if (this.readyState == 4 && this.status == 200) {
             callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
         }else{
             callbackFunkcija(this.responseText , null) 
-        }*/
-        console.log(this.responseText);
+        }
     };
     xhr.onload = function() {
-      /*  if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+       if (this.readyState == 4 && this.status == 200) {
             callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
         }else{
             callbackFunkcija(this.responseText , null) 
-        }*/
-        console.log(this.responseText);
+        }
     }
     xhr.send(JSON.stringify(vjezbeObjekat));
 }
@@ -41,18 +43,24 @@ function dohvatiPodatke(callbackFunkcija){
     
     xhr.onreadystatechange = function () {
         console.log(this.responseText);
-       callbackFunkcija(null, this.responseText)
+        if (this.readyState == 4 && this.status == 200) {
+            callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
+        }else{
+            callbackFunkcija(this.responseText , null) 
+        }
     };
     xhr.onload = function() {
         console.log(this.responseText);
-      //  callbackFunkcija(error, data)
+        if (this.readyState == 4 && this.status == 200) {
+            callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
+        }else{
+            callbackFunkcija(this.responseText , null) 
+        }
     }
     xhr.send();
 }
 
 function iscrtajVjezbe(divDOMelement, obj){
-    console.log('uslo i crta objekat' + JSON.stringify(obj))
-    console.log(typeof obj)
     for(let i = 0; i < obj.brojVjezbi; i++){
         let div = document.createElement('div')
         div.classList.add('vjezba')

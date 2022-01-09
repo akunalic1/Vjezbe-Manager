@@ -7,7 +7,6 @@ btn.addEventListener('click', function(){
     console.log(unosBrojVjezbi.value)
     dodajInputPolja(polja, unosBrojVjezbi.value);
 })
-dodajInputPolja(polja, 2)
 
 submitBtn.addEventListener('click', function(){
     let objekat = kreirajObjekat( unosBrojVjezbi.value,polja)
@@ -16,7 +15,6 @@ submitBtn.addEventListener('click', function(){
 })
 
 function kreirajObjekat(brojVjezbi, divPolja){
-    //console.log(divPolja)
     let children = divPolja.children;
     let lista = []
         for(var i=0; i<children.length; i++){

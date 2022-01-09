@@ -4,19 +4,20 @@ const fs = require('fs')
 const bodyParser = require('body-parser')
 const app = express();
 
-// middlewares
+//!                                             MIDDLEWARES
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
 app.use(express.static('public'));
-app.use(express.static('public/html'));
+app.use(express.static('public/html')); // !ZAMJENITI ZA PATH.JOIN
 app.use(express.static('public'));
 
 //Serves all the request which includes /images in the url from Images folder
 //app.use('/images', express.static(__dirname + '/Images'));
 
-//  ?port
+//!                                             PORT
 let PORT = 3000;
 
+//!                                             GET
 app.get('/', (req, res) => {
     //console.log(req);
     res.setHeader('content-type', 'application/json');
@@ -32,11 +33,9 @@ app.get('/vjezbe/', (req, res) => {
         brojZadataka: data
     });
 })
+//!                                             POST
 app.post('/vjezbe', (req, res) => {
-  //  res.setHeader('content-type', 'application/json')
-    console.log('u post zahtjevu sam')
-    console.log(typeof req.body)
-    let odgovor = kreirajOdgovor(req.body)
+  let odgovor = kreirajOdgovor(req.body)
     if(!odgovor.pogresno){
         zapisiUCSV(req.body.brojZadataka)
         res.send(procitajVjezbeCSV())
@@ -49,7 +48,7 @@ app.post('/vjezbe', (req, res) => {
 })
 app.listen(PORT);
 
-//  ?pomocne funkcije
+//!                                             FUNCTIONS
 
 function procitajVjezbeCSV() {
     return izdvoji(fs.readFileSync('vjezbe.csv', 'utf-8'));
@@ -72,18 +71,17 @@ function zapisiUCSV(brojVjezbi){
     fs.writeFileSync('vjezbe.csv', data)
 }
 function kreirajOdgovor(responseBody){
-    console.log('kreiran odgovor' + JSON.stringify(responseBody))
     let brojVjezbi = responseBody.brojVjezbi;
     let brojZadataka = responseBody.brojZadataka;
     let odgovor = '';
-    if(brojVjezbi < 1 || brojVjezbi > 10)
+    if(brojVjezbi < 1 || brojVjezbi > 10 )
         odgovor+='brojVjezbi,'
-    if(brojZadataka.length != brojVjezbi)
-        odgovor+='brojZadataka,'
     for(let i in brojZadataka){
         if(brojZadataka[i] < 1 || brojZadataka[i] > 15)
-            odgovor+='z' + i + ','
+        odgovor+='z' + i + ','
     }
+    if(brojZadataka.length != brojVjezbi)
+        odgovor+='brojZadataka,'
     let pogresno = odgovor.length != 0;
     if(pogresno){
         odgovor = 'Pogrešan parametar ' + odgovor;

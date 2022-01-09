@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form  id = "form" action="/" method="">
+    <form  id = "form" method="">
         <div>
             <label for="unosBrojVjezbi">Unesite broj vjezbi:</label>
             <input type="number" name="unosBrojVjezbi" id="unosBrojVjezbi">
@@ -20,28 +20,6 @@
         <button id="submitBtn" type="submit">Pošalji zadatke</button>
     </form>
     <script src="/js/vjezbeAjax.js"></script>
-   <!-- <script src="/js/vjezbeAjax.js">
-        /*$(document).ready(function(){  
-            console.log(typeof $('#btn'))
-            console.log('usloo');
-            $('#btn').on('click',function(){
-                console.log('usloo');
-                let brVjezbi = $('#unosBrojVjezbi').val()
-               $('#polja').empty();
-                for(let i = 0; i < brVjezbi; i++){
-                    console.log(i);
-                    let div = document.createElement('div');
-                    let label = document.createElement('label');
-                    let input = document.createElement('input')
-                    div.innerHTML = `<label for="vjezba${i+1}">Unesite broj zadataka za vjezbu ${i+1}:</label>` + `<input type="number" name="vjezba${i+1}" id="vjezba${i+1}">`;
-                    $('#polja').append(div);
-                }
-       
-                $('#polja').append('<button id="submitBtn" type="submit">Završi</button>');
-                return false;
-            })
-        })*/
-    </script>--> 
     <script src="/js/unosVjezbi.js" type="module"></script>
     </script>
 </body>
