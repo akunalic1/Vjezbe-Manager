@@ -43,3 +43,7 @@ input{
     font-weight: bold;
     letter-spacing: 2px;
 }
+
+#submitBtn{
+    width:100%
+}

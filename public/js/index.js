@@ -1,14 +1,15 @@
 const express = require('express')
 const crypto = require('crypto')
 const fs = require('fs')
-
+const bodyParser = require('body-parser')
 const app = express();
 
 // middlewares
 app.use(express.urlencoded({extended:true}))
-app.use(express.json())
+app.use(bodyParser.json())
 app.use(express.static('public'));
 app.use(express.static('public/html'));
+app.use(express.static('public'));
 
 //Serves all the request which includes /images in the url from Images folder
 //app.use('/images', express.static(__dirname + '/Images'));
@@ -32,8 +33,9 @@ app.get('/vjezbe/', (req, res) => {
     });
 })
 app.post('/vjezbe', (req, res) => {
-    res.setHeader('content-type', 'application/json')
-    console.log(typeof req.body.brojZadataka)
+  //  res.setHeader('content-type', 'application/json')
+    console.log('u post zahtjevu sam')
+    console.log(typeof req.body)
     let odgovor = kreirajOdgovor(req.body)
     if(!odgovor.pogresno){
         zapisiUCSV(req.body.brojZadataka)
@@ -71,9 +73,10 @@ function zapisiUCSV(brojVjezbi){
     for(let ii in brojVjezbi){
         data+= crypto.randomBytes(3).toString('hex') + ',' + brojVjezbi[ii] + '\r\n';
     }
-    fs.appendFileSync('vjezbe.csv', data, 'utf-8')
+    fs.writeFileSync('vjezbe.csv', data)
 }
 function kreirajOdgovor(responseBody){
+    console.log('kreiran odgovor' + JSON.stringify(responseBody))
     let brojVjezbi = responseBody.brojVjezbi;
     let brojZadataka = responseBody.brojZadataka;
     let odgovor = '';

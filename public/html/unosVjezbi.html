@@ -9,15 +9,18 @@
     <title>Document</title>
 </head>
 <body>
-    <form  id = "form">
+    <form  id = "form" action="/" method="">
         <div>
             <label for="unosBrojVjezbi">Unesite broj vjezbi:</label>
             <input type="number" name="unosBrojVjezbi" id="unosBrojVjezbi">
-            <button type="button" id="btn" class="btn btn-primary">Otvori polja</button>
+            <button type="button" id="btn" class="btn btn-primary">Otvori
+            polja</button>
         </div>
         <div id="polja"></div>
+        <button id="submitBtn" type="submit">Pošalji zadatke</button>
     </form>
-    <script src="/js/vjezbeAjax.js">
+    <script src="/js/vjezbeAjax.js"></script>
+   <!-- <script src="/js/vjezbeAjax.js">
         /*$(document).ready(function(){  
             console.log(typeof $('#btn'))
             console.log('usloo');
@@ -38,15 +41,8 @@
                 return false;
             })
         })*/
-    </script>
-    <script>
-        $(document).ready(function(){
-            dodajInputPolja($('#polja'), 4)
-            $('#btn').click(function(){
-                dodajInputPolja($('#polja'), $('#unosBrojVjezbi').val())
-            })
-        })
-    </script> 
+    </script>--> 
+    <script src="/js/unosVjezbi.js" type="module"></script>
     </script>
 </body>
 </html>
