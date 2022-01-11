@@ -3,14 +3,15 @@ const btn = document.getElementById('btn')
 const submitBtn = document.getElementById('submitBtn')
 const unosBrojVjezbi = document.getElementById('unosBrojVjezbi')
 
+
 btn.addEventListener('click', function(){
-    console.log(unosBrojVjezbi.value)
-    dodajInputPolja(polja, unosBrojVjezbi.value);
+    console.log( typeof VjezbeAjax)
+    VjezbeAjax.dodajInputPolja(polja, unosBrojVjezbi.value);
 })
 
 submitBtn.addEventListener('click', function(){
     let objekat = kreirajObjekat( unosBrojVjezbi.value,polja)
-    posaljiPodatke(objekat, function(error, data){})
+    VjezbeAjax.posaljiPodatke(objekat, function(error, data){})
     return false;
 })
 

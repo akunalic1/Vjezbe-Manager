@@ -7,12 +7,10 @@ const app = express();
 //!                                             MIDDLEWARES
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
-app.use(express.static('public'));
 app.use(express.static('public/html')); // !ZAMJENITI ZA PATH.JOIN
-app.use(express.static('public'));
-
-//Serves all the request which includes /images in the url from Images folder
-//app.use('/images', express.static(__dirname + '/Images'));
+app.use(express.static('public/js'));
+app.use(express.static('public/css'));
+app.use(express.static('public/images'));
 
 //!                                             PORT
 let PORT = 3000;
@@ -33,6 +31,7 @@ app.get('/vjezbe/', (req, res) => {
         brojZadataka: data
     });
 })
+
 //!                                             POST
 app.post('/vjezbe', (req, res) => {
   let odgovor = kreirajOdgovor(req.body)

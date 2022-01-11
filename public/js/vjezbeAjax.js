@@ -1,99 +1,104 @@
-function dodajInputPolja(DOMelementDIVauFormi, brojVjezbi){
-    if(brojVjezbi > 0 && brojVjezbi <= 15){
-        DOMelementDIVauFormi.innerHTML = ''
-        console.log(typeof DOMelementDIVauFormi)
-        for(let i = 0; i < brojVjezbi; i++){
-            // console.log(i);
-            let div = document.createElement('div');
-            div.innerHTML = `<label for="z${i}">Unesite broj zadataka za vjezbu ${i+1}:</label>` + `<input type="number" name="z${i}" id="z${i}" value="4">`;
-            div.getElementsByTagName('input').value = 4;
-            $('#polja').append(div);
+let VjezbeAjax = (function(){
+    let listaVjezbi = [];
+    const dodajInputPolja = function(DOMelementDIVauFormi, brojVjezbi){
+        if(brojVjezbi > 0 && brojVjezbi <= 15){
+            DOMelementDIVauFormi.innerHTML = ''
+            console.log(typeof DOMelementDIVauFormi)
+            for(let i = 0; i < brojVjezbi; i++){
+                // console.log(i);
+                let div = document.createElement('div');
+                div.innerHTML = `<label for="z${i}">Unesite broj zadataka za vjezbu ${i+1}:</label>` + `<input type="number" name="z${i}" id="z${i}" value="4">`;
+                div.getElementsByTagName('input').value = 4;
+                $('#polja').append(div);
+            }
         }
     }
-}
-
-function posaljiPodatke(vjezbeObjekat, callbackFunkcija){
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/vjezbe', false);
-    xhr.setRequestHeader("Content-Type", "application/json");
     
-    xhr.onreadystatechange = function () {
-        console.log(this.responseText);
-        if (this.readyState == 4 && this.status == 200) {
-            callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
-        }else{
-            callbackFunkcija(this.responseText , null) 
+    const posaljiPodatke = function(vjezbeObjekat, callbackFunkcija){
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/vjezbe', false);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        
+        xhr.onreadystatechange = function () {
+            console.log(this.responseText);
+            if (this.readyState == 4 && this.status == 200) {
+                callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
+            }else{
+                callbackFunkcija(this.responseText , null) 
+            }
+        };
+        xhr.onload = function() {
+            console.log(this.responseText);
+          
         }
-    };
-    xhr.onload = function() {
-        console.log(this.responseText);
-       if (this.readyState == 4 && this.status == 200) {
-            callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
-        }else{
-            callbackFunkcija(this.responseText , null) 
-        }
+        xhr.send(JSON.stringify(vjezbeObjekat));
     }
-    xhr.send(JSON.stringify(vjezbeObjekat));
-}
-
-function dohvatiPodatke(callbackFunkcija){
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/vjezbe', false);
-    xhr.setRequestHeader("Content-Type", "application/json");
     
-    xhr.onreadystatechange = function () {
-        console.log(this.responseText);
-        if (this.readyState == 4 && this.status == 200) {
-            callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
-        }else{
-            callbackFunkcija(this.responseText , null) 
+    const dohvatiPodatke = function(callbackFunkcija){
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/vjezbe', false);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        
+        xhr.onreadystatechange = function () {
+            console.log(this.responseText);
+            if (this.readyState == 4 && this.status == 200) {
+                callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
+            }else{
+                callbackFunkcija(this.responseText , null) 
+            }
+        };
+        xhr.onload = function() {
+            console.log(this.responseText);
+            
         }
-    };
-    xhr.onload = function() {
-        console.log(this.responseText);
-        if (this.readyState == 4 && this.status == 200) {
-            callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
-        }else{
-            callbackFunkcija(this.responseText , null) 
-        }
+        xhr.send();
     }
-    xhr.send();
-}
-
-function iscrtajVjezbe(divDOMelement, obj){
-    for(let i = 0; i < obj.brojVjezbi; i++){
-        let div = document.createElement('div')
-        div.classList.add('vjezba')
-        div.id =`v${i}`
-        div.innerText = `Vjezba ${i+1}`
-        let innerDiv = document.createElement('div');
-        innerDiv.classList.add('zadaci')
-        //div.appendChild(innerDiv)
-        iscrtajZadatke(innerDiv,obj.brojZadataka[i])
-        div.addEventListener('click', function(){
-            iscrtajZadatke(innerDiv, -1)                    // ! HARDKODIRANO
-        })
-        console.log(divDOMelement)
-        divDOMelement.append(div)
-        divDOMelement.append(innerDiv)
-    }
-}
-
-function iscrtajZadatke(divDOMelement, brojVjezbi){
-    if(brojVjezbi > 0){
-        for(let i = 0; i < brojVjezbi; i++){
+    
+    const iscrtajVjezbe = function(divDOMelement, obj){
+        for(let i = 0; i < obj.brojVjezbi; i++){
             let div = document.createElement('div')
-            div.classList.add('zadatak')
-            div.id =`z${i}`
-            div.innerText = `Zadatak ${i+1}`
-            divDOMelement.style.display = 'flex'
+            div.classList.add('vjezba')
+            div.id =`v${i}`
+            div.innerText = `Vjezba ${i+1}`
+            let innerDiv = document.createElement('div');
+            innerDiv.classList.add('zadaci')
+            //div.appendChild(innerDiv)
+            iscrtajZadatke(innerDiv,obj.brojZadataka[i])
+            div.addEventListener('click', function(){
+                iscrtajZadatke(innerDiv, -1)                    // ! HARDKODIRANO
+            })
+            listaVjezbi.push(innerDiv)
             divDOMelement.append(div)
-        }    
-    }else{
-        if(divDOMelement.style.display === 'flex')
-            divDOMelement.style.display = 'none';
-        else
-            divDOMelement.style.display = 'flex';
-
+            divDOMelement.append(innerDiv)
+        }
     }
-}
+    const iscrtajZadatke = function(divDOMelement, brojVjezbi){
+        if(brojVjezbi > 0){
+            for(let i = 0; i < brojVjezbi; i++){
+                let div = document.createElement('div')
+                div.classList.add('zadatak')
+                div.id =`z${i}`
+                div.innerText = `Zadatak ${i+1}`
+                divDOMelement.style.display = 'none'
+                divDOMelement.append(div)
+               
+            }    
+        }else{
+            for(let ii in listaVjezbi){
+                if(listaVjezbi[ii].style.display === 'flex')
+                    listaVjezbi[ii].style.display = 'none'
+            }
+            if(divDOMelement.style.display === 'flex')
+                divDOMelement.style.display = 'none';
+            else
+                divDOMelement.style.display = 'flex';
+        }
+    }
+    return {
+        dodajInputPolja,
+        iscrtajZadatke,
+        posaljiPodatke, 
+        dohvatiPodatke,
+        iscrtajVjezbe
+    }
+})();

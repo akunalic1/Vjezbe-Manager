@@ -1,9 +1,7 @@
-
-
 const divVjezbe = document.getElementById('odabirVjezbe')
 
- dohvatiPodatke((error, data)=>{
-    iscrtajVjezbe(divVjezbe, JSON.parse(data))
+ VjezbeAjax.dohvatiPodatke((error, data)=>{
+    VjezbeAjax.iscrtajVjezbe(divVjezbe, JSON.parse(data))
 });
 // ! pomocne funckije
 

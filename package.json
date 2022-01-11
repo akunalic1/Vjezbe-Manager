@@ -1,11 +1,16 @@
 {
   "dependencies": {
+    "chai": "*",
+    "chai-http": "^4.3.0",
     "crypto": "^1.0.1",
     "express": "^4.17.2",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "mocha": "*",
+    "sinon": "^12.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0"
   },
   "name": "wt21p18770",
   "version": "1.0.0",
@@ -14,8 +19,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "nodemon public/js/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js",
+    "test": "mocha public/js/test.js",
+    "nyctest": "nyc --reporter=text mocha"
   },
   "repository": {
     "type": "git",
