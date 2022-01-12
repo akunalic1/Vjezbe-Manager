@@ -33,12 +33,12 @@ describe('Vjezbe Ajax Modul', function () {
     it('Veca lista od broja vjezbi', function (done) {
       let data = {
         "brojVjezbi": 5,
-        "brojZadataka": [1, 2, 9, 6, 4, -1, 0]
+        "brojZadataka": [1, 2, 9, 6, 4, 1, 0]
       }
       let error = {
         "status": "error",
-        "data": "Pogrešan parametar brojZadataka"
-      }
+        "data": "Pogrešan parametar z6,brojZadataka"
+    }
       VjezbeAjax.posaljiPodatke(data, function (err, result) {
         chai.assert(result === null);
         done();
@@ -48,12 +48,12 @@ describe('Vjezbe Ajax Modul', function () {
     it('Broj vjezbi 0 sa nepraznom listom', function (done) {
       let data = {
         "brojVjezbi": 0,
-        "brojZadataka": [1, 2, 9, 6, 4, -1, 0]
+        "brojZadataka": [1, 2, 9, 6, 4, 1, 0]
       }
       let error = {
         "status": "error",
-        "data": "Pogrešan parametar brojVjezbi,brojZadataka"
-      }
+        "data": "Pogrešan parametar brojVjezbi,z6,brojZadataka"
+    }
       VjezbeAjax.posaljiPodatke(data, function (err, result) {
         chai.assert(result === null);
         done();
@@ -93,12 +93,12 @@ describe('Vjezbe Ajax Modul', function () {
     it('Negativni i prekoračeni brojevi zadataka', function (done) {
       let data = {
         "brojVjezbi": 8,
-        "brojZadataka": [1, 2, -2, -3, 0, 10, 90, 1]
+        "brojZadataka": [1, 2, 2, 3, 0, 10, 90, 1]
       }
       let error = {
         "status": "error",
-        "data": "Pogrešan parametar z2,z3,z4,z6"
-      }
+        "data": "Pogrešan parametar z4,z6"
+    }
       VjezbeAjax.posaljiPodatke(data, function (err, result) {
         chai.assert(result === null);
         done();

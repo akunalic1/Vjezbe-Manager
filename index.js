@@ -74,10 +74,10 @@ function kreirajOdgovor(responseBody){
     let brojVjezbi = responseBody.brojVjezbi;
     let brojZadataka = responseBody.brojZadataka;
     let odgovor = '';
-    if(brojVjezbi < 1 || brojVjezbi > 10 )
+    if(brojVjezbi < 1 || brojVjezbi > 15 )
         odgovor+='brojVjezbi,'
     for(let i in brojZadataka){
-        if(brojZadataka[i] < 1 || brojZadataka[i] > 15)
+        if(brojZadataka[i] < 1 || brojZadataka[i] > 10)
         odgovor+='z' + i + ','
     }
     console.log('broj zadataka i vjezbi = ' + brojZadataka + ' ' + brojVjezbi)
