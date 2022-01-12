@@ -20,17 +20,16 @@ let VjezbeAjax = (function(){
         xhr.setRequestHeader("Content-Type", "application/json");
         
         xhr.onreadystatechange = function () {
-            console.log(this.responseText);
+            console.log(this);
             if (this.readyState == 4 && this.status == 200) {
+                console.log('oke')
                 callbackFunkcija(null, this.responseText)               // ! todo  provjeriti za parametre funckije
             }else{
+                console.log('nije oke')
                 callbackFunkcija(this.responseText , null) 
             }
         };
-        xhr.onload = function() {
-            console.log(this.responseText);
-          
-        }
+        
         xhr.send(JSON.stringify(vjezbeObjekat));
     }
     

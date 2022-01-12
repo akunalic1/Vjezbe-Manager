@@ -35,6 +35,7 @@ app.get('/vjezbe/', (req, res) => {
 //!                                             POST
 app.post('/vjezbe', (req, res) => {
   let odgovor = kreirajOdgovor(req.body)
+  console.log('odgvor u post' +  odgovor)
     if(!odgovor.pogresno){
         zapisiUCSV(req.body.brojZadataka)
         res.send(procitajVjezbeCSV())
@@ -79,6 +80,7 @@ function kreirajOdgovor(responseBody){
         if(brojZadataka[i] < 1 || brojZadataka[i] > 15)
         odgovor+='z' + i + ','
     }
+    console.log('broj zadataka i vjezbi = ' + brojZadataka + ' ' + brojVjezbi)
     if(brojZadataka.length != brojVjezbi)
         odgovor+='brojZadataka,'
     let pogresno = odgovor.length != 0;
