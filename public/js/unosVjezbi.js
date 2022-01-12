@@ -11,6 +11,7 @@ btn.addEventListener('click', function(){
 
 submitBtn.addEventListener('click', function(){
     let objekat = kreirajObjekat( unosBrojVjezbi.value,polja)
+    
     VjezbeAjax.posaljiPodatke(objekat, function(error, data){})
     return false;
 })
@@ -27,3 +28,4 @@ function kreirajObjekat(brojVjezbi, divPolja){
         'brojZadataka': lista
     }
 }
+

@@ -47,3 +47,13 @@ input{
 #submitBtn{
     width:100%
 }
+#poruka{
+    font-weight: bold;
+    padding: 10px 0;
+}
+.green{
+    color:darkgreen
+}
+.red{
+    color: red;
+}

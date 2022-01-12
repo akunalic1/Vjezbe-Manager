@@ -1,5 +1,10 @@
 let VjezbeAjax = (function(){
-    let listaVjezbi = [];
+    let listaVjezbi = []
+    const poruka = document.createElement('div');
+    poruka.id='poruka'
+   const form = document.getElementById('form')
+   if( form != null)
+    form.appendChild(poruka);
     const dodajInputPolja = function(DOMelementDIVauFormi, brojVjezbi){
         if(brojVjezbi > 0 && brojVjezbi <= 15){
             DOMelementDIVauFormi.innerHTML = ''
@@ -20,16 +25,22 @@ let VjezbeAjax = (function(){
         xhr.setRequestHeader("Content-Type", "application/json");
         
         xhr.onreadystatechange = function () {
-            console.log(this);
             if (this.readyState == 4 && this.status == 200) {
-                console.log('oke')
+               if(form != null){
+                   poruka.innerHTML = 'Vasi podaci su sacuvani'
+                   poruka.classList.remove('red')
+                    poruka.classList.add('green')
+               }
                 callbackFunkcija(null, this.responseText)           
             }else if(this.readyState == 4){
-                console.log('nije oke')
+                if(form != null){
+                    poruka.classList.remove('green')
+                    poruka.classList.add('red')
+                    poruka.innerHTML = 'Pogresno ste unjeli podatke'
+                }
                 callbackFunkcija(this.responseText , null) 
             }
         };
-        
         xhr.send(JSON.stringify(vjezbeObjekat));
     }
     

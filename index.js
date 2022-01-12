@@ -35,12 +35,12 @@ app.get('/vjezbe/', (req, res) => {
 //!                                             POST
 app.post('/vjezbe', (req, res) => {
   let odgovor = kreirajOdgovor(req.body)
-  console.log('odgvor u post' +  odgovor)
+  console.log('odgvor u post' +  JSON.stringify(odgovor))
     if(!odgovor.pogresno){
         zapisiUCSV(req.body.brojZadataka)
         res.send(procitajVjezbeCSV())
     }else{
-        res.send({
+        res.status(400).send({
             status: odgovor.status,
             data: odgovor.data
         })
