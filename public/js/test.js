@@ -90,7 +90,7 @@ describe('Vjezbe Ajax Modul', function () {
       });
       this.requests[0].respond(400, { 'Content-Type': 'application/json' }, JSON.stringify(error));
     });
-    it('Negativni i prekoračeni brojevi zadataka', function (done) {
+    it('Prekoračeni brojevi zadataka', function (done) {
       let data = {
         "brojVjezbi": 8,
         "brojZadataka": [1, 2, 2, 3, 0, 10, 90, 1]
@@ -98,6 +98,36 @@ describe('Vjezbe Ajax Modul', function () {
       let error = {
         "status": "error",
         "data": "Pogrešan parametar z4,z6"
+    }
+      VjezbeAjax.posaljiPodatke(data, function (err, result) {
+        chai.assert(result === null);
+        done();
+      });
+      this.requests[0].respond(400, { 'Content-Type': 'application/json' }, JSON.stringify(error));
+    });
+    it('Negativni brojevi zadataka', function (done) {
+      let data = {
+        "brojVjezbi": 8,
+        "brojZadataka": [1, 2, -2, -3, -0, -10, 90, 1]
+      }
+      let error = {
+        "status": "error",
+        "data": "Pogrešan parametar z2,z3,z4,z5,z6"
+    }
+      VjezbeAjax.posaljiPodatke(data, function (err, result) {
+        chai.assert(result === null);
+        done();
+      });
+      this.requests[0].respond(400, { 'Content-Type': 'application/json' }, JSON.stringify(error));
+    });
+    it('Prekoračen broj vježbi', function (done) {
+      let data = {
+        "brojVjezbi": 88,
+        "brojZadataka": [1, 2, -2, -3, -0, -10, 90, 1]
+      }
+      let error = {
+        "status": "error",
+        "data": "Pogrešan parametar brojVjezbi,z2,z3,z4,z5,z6,brojZadataka"
     }
       VjezbeAjax.posaljiPodatke(data, function (err, result) {
         chai.assert(result === null);
