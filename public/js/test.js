@@ -14,7 +14,7 @@ describe('Vjezbe Ajax Modul', function () {
   afterEach(function () {
     this.xhr.restore();
   });
-  describe('Testiranje posaljiPodatke', function () {
+  describe('Testiranje posaljiPodatke', function (){
 
     it('Isparavan format', function (done) {
       const data = {
@@ -107,7 +107,7 @@ describe('Vjezbe Ajax Modul', function () {
     });
   })
 
-  describe('Testiranje dodajInputPolja', function () {
+  describe('Testiranje dodajInputPolja', function (){
 
     it('Negativan broj polja', function (done) {
       let div = document.createElement('div')
@@ -151,7 +151,7 @@ describe('Vjezbe Ajax Modul', function () {
       this.requests[0].respond(200, { 'Content-Type': 'text/json' }, dataJson);
     })
   })
-  describe('Testiranje iscrtajVjezbe', function () {
+  describe('Testiranje iscrtajVjezbe', function (){
     it('Isparavan format', function (done) {
       let div = document.createElement('div')
       const data = {

@@ -95,11 +95,6 @@ let VjezbeAjax = (function(){
                 divDOMelement.style.display = 'flex';
         }
     }
-    return {
-        dodajInputPolja,
-        iscrtajZadatke,
-        posaljiPodatke, 
-        dohvatiPodatke,
-        iscrtajVjezbe
-    }
+
+    return { dodajInputPolja,iscrtajZadatke,posaljiPodatke,dohvatiPodatke,iscrtajVjezbe}
 })();
