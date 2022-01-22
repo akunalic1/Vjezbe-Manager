@@ -7,7 +7,7 @@ const app = express();
 //!                                             MIDDLEWARES
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
-app.use(express.static('public/html')); // !ZAMJENITI ZA PATH.JOIN
+app.use(express.static('public/html')); 
 app.use(express.static('public/js'));
 app.use(express.static('public/css'));
 app.use(express.static('public/images'));
@@ -45,6 +45,13 @@ app.post('/vjezbe', (req, res) => {
             data: odgovor.data
         })
     }
+})
+
+//!                                         POST/STUDENT
+app.post('/student', (req, res) => {
+    let s = req.body;
+    console.log(s)
+    res.send();
 })
 app.listen(PORT);
 
