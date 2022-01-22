@@ -3,7 +3,8 @@ const crypto = require('crypto')
 const fs = require('fs')
 const bodyParser = require('body-parser')
 const app = express();
-
+const db = require('./db');
+const Student = require('./models/Student');
 //!                                             MIDDLEWARES
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
@@ -50,8 +51,15 @@ app.post('/vjezbe', (req, res) => {
 //!                                         POST/STUDENT
 app.post('/student', (req, res) => {
     let s = req.body;
-    console.log(s)
-    res.send();
+    let {ime, prezime, index, grupa} = s
+    Student.create({
+        ime,
+        prezime,
+        index,
+        grupa
+    }).then(ss => console.log(s))
+    .catch(e => console.log(e))
+    res.send(s);
 })
 app.listen(PORT);
 
@@ -101,3 +109,10 @@ function kreirajOdgovor(responseBody){
         data: odgovor
     }
 }
+
+// !                    Test DB
+db.authenticate()
+.then(() => console.log('Database connected...'))
+.catch((err) => console.log(err))
+
+db.sync();
