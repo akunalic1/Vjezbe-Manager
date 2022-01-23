@@ -5,6 +5,8 @@ const bodyParser = require('body-parser')
 const app = express();
 const db = require('./db');
 const Student = require('./models/Student');
+const Grupa = require('./models/Grupa');
+const { type } = require('express/lib/response');
 //!                                             MIDDLEWARES
 app.use(express.urlencoded({extended:true}))
 app.use(bodyParser.json())
@@ -52,17 +54,26 @@ app.post('/vjezbe', (req, res) => {
 app.post('/student', (req, res) => {
     let s = req.body;
     let {ime, prezime, index, grupa} = s
-    Student.create({
-        ime,
-        prezime,
-        index,
-        grupa
-    }).then(ss => console.log(s))
-    .catch(e => console.log(e))
-    res.send(s);
+    
+    Student.findAll({where: {'index':index}}).then(t => {
+        if(t.length != 0){
+            res.send({status:`Student sa indeksom ${index} već postoji`});
+        }else{
+            Student.create({ime,prezime,index,grupa}).then(ss => console.log(ss)).catch(e => console.log(e))
+            Grupa.findAll({where:{'naziv': grupa}}).then(tt => {
+                if(tt.length == 0)
+                Grupa.create({grupa}).then(ss => console.log(s)).catch(e => console.log(e))
+                res.send({status: 'Kreiran student'});
+        })}
+    }).catch(e => console.log(e))
 })
 app.listen(PORT);
 
+ function provjeriImaLi(index){
+    let data =  Student.findAll({where: {'index':index}})
+    console.log('podaci ' +  data)
+    return data.length != 0
+}
 //!                                             FUNCTIONS
 
 function procitajVjezbeCSV() {
