@@ -15,7 +15,12 @@ const Student = db.define('student', {
     grupa: {
         type: Sequelize.STRING
     },
+    
 })
-
+Student.hasOne(Grupa, {as:'grupaa', 
+onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+foreignKey: 'student_pk' });
+Grupa.belongsTo(Student, {foreignKey: 'student_pk' });
 
 module.exports = Student
