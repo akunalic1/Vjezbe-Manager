@@ -41,7 +41,7 @@ let StudentAjax = (function () {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 if (form != null) {
-                    poruka.innerHTML = this.responseText
+                    poruka.innerHTML = JSON.parse(this.responseText).status
                     poruka.classList.remove('red')
                     poruka.classList.add('green')
                 }
@@ -50,7 +50,7 @@ let StudentAjax = (function () {
                 if (form != null) {
                     poruka.classList.remove('green')
                     poruka.classList.add('red')
-                    poruka.innerHTML = this.response.status
+                    poruka.innerHTML = JSON.parse(this.responseText).status
                 }
                 callbackFunction(this.responseText, null)
             }
@@ -59,9 +59,38 @@ let StudentAjax = (function () {
     }
 
     const dodajBatch = function (csvStudenti, callbackFunction) {
+        var xhr = new XMLHttpRequest();
+        
+        console.log(csvStudenti)
 
+        xhr.open('POST', `/batch/student`, false);
+        xhr.setRequestHeader('Content-type', 'application/json');
+      
+         xhr.onreadystatechange = function () {
+             if (this.readyState == 4 && this.status == 200) {
+                 if (form != null) {
+                     poruka.innerHTML = JSON.parse(this.responseText).status
+                     poruka.classList.remove('red')
+                     poruka.classList.add('green')
+                 }
+                 callbackFunction(null, this.responseText)
+             } else if (this.readyState == 4) {
+                 if (form != null) {
+                     poruka.classList.remove('green')
+                     poruka.classList.add('red')
+                     poruka.innerHTML = JSON.parse(this.responseText).status
+                 }
+                 callbackFunction(this.responseText, null)
+             }
+         };
+         xhr.send(JSON.stringify({'csv': csvStudenti}));
     }
+
+   
+
     return {
-        dodajStudenta, dodajBatch, postaviGrupu
+        dodajStudenta, 
+        dodajBatch,
+        postaviGrupu
     }
 })();

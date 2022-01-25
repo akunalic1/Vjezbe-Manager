@@ -8,6 +8,6 @@ const Zadatak = db.define('zadatak', {
     vjezbaId: {
         type: Sequelize.STRING
     }
-})
+},{timestamps: false})
 
 module.exports = Zadatak

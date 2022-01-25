@@ -15,8 +15,8 @@ const Student = db.define('student', {
     grupa: {
         type: Sequelize.STRING
     },
+    },{timestamps: false})
     
-})
 Student.hasOne(Grupa, {as:'grupaa', 
 onDelete: 'CASCADE',
   onUpdate: 'CASCADE',

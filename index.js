@@ -94,22 +94,24 @@ app.post('/student', (req, res) => {
 app.put('/student/:index', (req, res) => {
     let grupa = req.body.grupa;
     console.log(typeof grupa)
-    Student.findAll({ where: { 'index': req.params.index } }).then(ss => {
-        if (ss.length != 0) {
-            Student.update({ 'grupa': grupa }, { where: { 'index': req.params.index } }).then(() => {
-                Grupa.findOrCreate({ where: { naziv: grupa } })
-                res.send(`promjenjena grupa studentu ${req.params.index}`)
-            })
-        } else {
-            res.status(400).send({ status: `Student sa indeksom ${req.params.index} ne postoji` });
-        }
-    })
-}
-)
+    Student.findOne({ where: { 'index': req.params.index } })
+        .then(ss => {
+            if (ss != null) {
+                Student.update({ 'grupa': grupa }, { where: { 'index': req.params.index } })
+                    .then((s) => {
+                        Grupa.findOne({ where: { 'student_pk': s.id } })
+                        res.send(`promjenjena grupa studentu ${req.params.index}`)
+                    })
+            } else {
+                res.status(400).send({ status: `Student sa indeksom ${req.params.index} ne postoji` });
+            }
+        })
+})
 
 // !                    post / batch & student csv
 app.post('/batch/student', (req, res) => {
     let data = izdvoji(req.body.csv)
+    console.log('Csv podaci ' + data)
     let listaPostojecih = []
     Student.findAll().then((studenti) => {
         for (let i in data) {
@@ -117,6 +119,14 @@ app.post('/batch/student', (req, res) => {
                 listaPostojecih.push(data[i].index)
             else {
                 Student.create(data[i])
+                .then((s) => {
+                    Grupa.findOne({ where: { 'naziv': s.grupa } })
+                    .then(g => {
+                        if(g == null){
+                            Grupa.create({'naziv': s.grupa, 'student_pk': s.id})
+                        }
+                    })
+                })
             }
         }
         let N = listaPostojecih.length

@@ -7,6 +7,6 @@ const Grupa = db.define('grupa', {
         type: Sequelize.STRING,
         unique:true
     }
-})
+},{timestamps: false})
 
 module.exports = Grupa

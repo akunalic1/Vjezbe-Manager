@@ -13,6 +13,6 @@ const Vjezba = db.define('vjezba', {
     brojZadataka: {
         type: Sequelize.INTEGER
     }
-})
+},{timestamps: false})
 
 module.exports = Vjezba
