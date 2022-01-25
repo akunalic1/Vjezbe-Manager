@@ -1,11 +1,12 @@
 let StudentAjax = (function () {
 
-    const poruka = document.createElement('div');
-    poruka.id = 'poruka'
-    const form = document.getElementById('form')
+    const poruka = document.getElementById('ajaxstatus')
+    //poruka.id = 'poruka'
+    //const form = document.getElementById('form')
 
-    if (form != null)
-        form.appendChild(poruka);
+
+   // if (form != null)
+    //    form.appendChild(poruka);
 
     const dodajStudenta = function (student, callbackFunction) {
         var xhr = new XMLHttpRequest();
