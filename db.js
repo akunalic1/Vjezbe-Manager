@@ -1,12 +1,12 @@
 const { Sequelize } = require('sequelize');
 
-const db = new Sequelize('wt2118770', 'root', '', {
+const db = new Sequelize('wt2118770', 'root', 'password', {
   host: 'localhost',
   dialect: 'mysql',
   logging: false,
   
 });
 
-db.sync({ force: true });
+//db.sync({ force: true });
 
 module.exports = db

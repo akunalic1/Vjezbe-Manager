@@ -37,7 +37,7 @@ app.get('/vjezbe/', (req, res) => {
     res.status(200);
     Vjezba.findAll().then(vjezbe => {
         let data = vjezbe.map(x => x.brojZadataka)
-        console.log(data)
+        
         res.send({
             brojVjezbi: data.length,
             brojZadataka: data
@@ -58,7 +58,7 @@ app.post('/vjezbe', (req, res) => {
                     brojZadataka: brZd
                 }).then(v => {
                     for (let j = 0; j < brZd; j++) {
-                        console.log(brZd)
+                       
                         Zadatak.create({
                             naziv: `Zadatak ${j + 1}`,
                             vjezbaId: v.id
@@ -89,8 +89,7 @@ app.post('/student', (req, res) => {
                         Grupa.findOrCreate({ where: { 'naziv': grupa } })
                              .then((kreirana, uspjesno) => {
                                  kreirana = JSON.parse(JSON.stringify(kreirana[0]))
-                                 console.log(kreirana.id)
-                                 console.log(typeof kreirana)
+                                
                                  let grupaId = kreirana.id
                                  Student.create({ ime, prezime, index, grupa,grupaId})
                                          .then(() => {
@@ -99,7 +98,7 @@ app.post('/student', (req, res) => {
                              }
 
                              ).catch(e => console.log(e))
-                           // res.send({ status: 'Kreiran student' });         
+                                    
         }
     }).catch(e => console.log(e))
 })
@@ -107,26 +106,25 @@ app.post('/student', (req, res) => {
 // !                                            PUT/student/:index
 app.put('/student/:index', (req, res) => {
     let grupa = req.body.grupa;
-    console.log(grupa)
-    console.log(req.params)
+   
     Student.findOne({ where: { 'index': req.params.index } })
         .then(ss => {
-            console.log(ss)
+            
             if (ss != null) {
-                        console.log('student za update: ' + ss)
+                        
                         Grupa.findOne({ where: { 'naziv': grupa } }).then(g => {
                             if(g != null){
                                 ss.grupa = g.naziv;
                                 ss.grupaId = g.id
                                 ss.save();
-                                res.send( {status:`promjenjena grupa studentu ${req.params.index}`})
+                                res.send( {status:`Promjenjena grupa studentu ${req.params.index}`})
                             }else{
                                 Grupa.create({naziv:grupa}).then(ggg => {
                                     ggg = JSON.parse(JSON.stringify(ggg))
                                     ss.grupa = ggg.naziv;
                                     ss.grupaId = ggg.id
                                     ss.save();
-                                    res.send( {status:`promjenjena grupa studentu ${req.params.index}`})
+                                    res.send( {status:`Promjenjena grupa studentu ${req.params.index}`})
                                 }).catch()
                             }
                         })
@@ -140,7 +138,7 @@ app.put('/student/:index', (req, res) => {
 // !                    post / batch & student csv
 app.post('/batch/student', (req, res) => {
     req.body.toString('utf-8')
-    console.log(req.body)
+  
     let data = izdvoji(req.body)
     let { unikati, duplikati } = ukloniDuplikatePoIndexu(data)
     let listaPostojecih = [] //duplikati.map(x => x.index)
@@ -149,8 +147,8 @@ app.post('/batch/student', (req, res) => {
     if (!data.hasOwnProperty('greska')) {
         Student.findAll().then((studenti) => {
             for (let i = 0; i < data.length; i++) {
+                
                 let postojiUBazi = studenti.filter(m => { return m.index === data[i].index }).length != 0
-               
                 let postojeUDuplikatima = duplikati.filter(x => x.index === data[i].index).length != 0
                 let istaDuzina = duplikati.filter(x => x.index === data[i].index).length === listaPostojecih.filter(x => x === data[i].index).length
                 
@@ -164,14 +162,14 @@ app.post('/batch/student', (req, res) => {
                             Grupa.findOne({ where: { 'naziv': data[i].grupa } })
                                 .then(postojeca => {
                                     if(postojeca == null){
-                                        console.log(s.grupa)
+                                    
                                         Grupa.create({'naziv': s.grupa})
                                         .then(kreirana => {
                                             kreirana = JSON.parse(JSON.stringify(kreirana))
-                                               console.log('kreirana id ' + kreirana.id)
+                                            
                                                     s.update({grupaId:kreirana.id})
                                         }).catch(e => {
-                                          console.log('student ' + s)
+                                         
                                         })
                                     }else{
                                         postojeca = JSON.parse(JSON.stringify(postojeca))
@@ -189,13 +187,12 @@ app.post('/batch/student', (req, res) => {
             }
 
         }).then(() => {
-            console.log('------------\nLista postojecih' + listaPostojecih + '\n------------------\n')
-  
+
             let brojSvihStudenata = data.length //4
             let brojDodanihStudenata = brojSvihStudenata - listaPostojecih.length // 4 - 
             if (brojDodanihStudenata < 0) brojDodanihStudenata = 0
             if (brojDodanihStudenata === brojSvihStudenata)
-                res.send({ status: `Dodano ${brojSvihStudenata} studenata` })
+                res.send({ status: `Dodano ${brojSvihStudenata} studenata!` })
             else
                 res.send({ status: `Dodano ${brojDodanihStudenata} studenata, a studenti ${listaPostojecih} već postoje!` })
         })
@@ -206,12 +203,13 @@ app.post('/batch/student', (req, res) => {
 
 
 // !                                            Port
-app.listen(PORT);
+
 
 //!                                             FUNCTIONS
 
 function izdvoji(data) {
     let lista = [];
+    
     let regex = '\n';
     if (data.toString().includes('\r\n'))
         regex = '\r\n';
@@ -219,8 +217,8 @@ function izdvoji(data) {
 
     for (let red of redovi) {
         let podaci = red.split(',');
-        console.log(isNaN(Number(podaci[2])))
-        if (podaci.length != 4 || typeof podaci[0] != 'string' || isNaN(Number(podaci[2])) || typeof podaci[1] != 'string' || typeof podaci[3] != 'string' || podaci[0].length === 0 || podaci[0].length === 0 || podaci[1].length === 0 || podaci[3].length === 0)
+       
+        if (podaci.length != 4 || typeof podaci[0] != 'string' || isNaN(Number(podaci[2])) || typeof podaci[1] != 'string' || typeof podaci[3] != 'string' ||  podaci[0].length === 0 || podaci[1].length === 0 || podaci[3].length === 0)
             return {
                 greska: 'Nevalidan format csv podataka.'
             }
@@ -246,7 +244,7 @@ function kreirajOdgovor(responseBody) {
         if (brojZadataka[i] < 1 || brojZadataka[i] > 10)
             odgovor += 'z' + i + ','
     }
-    console.log('broj zadataka i vjezbi = ' + brojZadataka + ' ' + brojVjezbi)
+   
     if (brojZadataka.length != brojVjezbi)
         odgovor += 'brojZadataka,'
     let pogresno = odgovor.length != 0;
@@ -271,8 +269,15 @@ function ukloniDuplikatePoIndexu(data) {
     }
     return { unikati, duplikati };
 }
+
 // !                    Test DB
-//db.sync({ force: true });
+/*
 db.authenticate()
-    .then(() => console.log('Database connected...'))
-    .catch((err) => console.log(err))
+.then(() => console.log('Database connected...'))
+.catch((err) => console.log(err))
+*/
+db.sync().then(() => {
+   // console.log('Sinhronizacija')
+    app.listen(PORT)
+})
+module.exports = app

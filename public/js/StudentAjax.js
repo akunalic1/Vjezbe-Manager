@@ -1,12 +1,6 @@
 let StudentAjax = (function () {
 
     const poruka = document.getElementById('ajaxstatus')
-    //poruka.id = 'poruka'
-    //const form = document.getElementById('form')
-
-
-   // if (form != null)
-    //    form.appendChild(poruka);
 
     const dodajStudenta = function (student, callbackFunction) {
         var xhr = new XMLHttpRequest();
@@ -62,7 +56,7 @@ let StudentAjax = (function () {
 
     const dodajBatch = function (csvStudenti, callbackFunction) {
         var xhr = new XMLHttpRequest();
-        console.log(csvStudenti)
+      
         xhr.open('POST', `/batch/student`, false);
        // xhr.setRequestHeader('Content-type', 'text/csv');
       

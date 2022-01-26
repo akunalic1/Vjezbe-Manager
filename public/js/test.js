@@ -1,5 +1,6 @@
 chai.should();
 
+
 describe('Vjezbe Ajax Modul', function () {
   //All the tests would go here
   beforeEach(function () {
