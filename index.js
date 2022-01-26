@@ -143,41 +143,41 @@ app.post('/batch/student', (req, res) => {
     console.log(req.body)
     let data = izdvoji(req.body)
     let { unikati, duplikati } = ukloniDuplikatePoIndexu(data)
-    let listaPostojecih = duplikati.map(x => x.index)
+    let listaPostojecih = [] //duplikati.map(x => x.index)
     let listaDodanih = []
 
     if (!data.hasOwnProperty('greska')) {
         Student.findAll().then((studenti) => {
             for (let i = 0; i < data.length; i++) {
-                let brojPostojecihUnutarBaze = studenti.filter(m => { return m.index == data[i].index }).length
-
-                if (brojPostojecihUnutarBaze != 0) {
-                    if (listaPostojecih.filter(x => x == data[i].index).length == 0) {
-                        listaPostojecih.push(data[i].index)
-                    } else
-                        listaDodanih.push(data[i].index)
+                let postojiUBazi = studenti.filter(m => { return m.index === data[i].index }).length != 0
+               
+                let postojeUDuplikatima = duplikati.filter(x => x.index === data[i].index).length != 0
+                let istaDuzina = duplikati.filter(x => x.index === data[i].index).length === listaPostojecih.filter(x => x === data[i].index).length
+                
+                if (postojiUBazi || postojeUDuplikatima && !istaDuzina) {
+                        listaPostojecih.push(data[i].index) 
                 }
                 else {
                     Student.create(data[i])
                         .then((s) => {
+                           
                             Grupa.findOne({ where: { 'naziv': data[i].grupa } })
                                 .then(postojeca => {
                                     if(postojeca == null){
-                                        console.log(postojeca)
+                                        console.log(s.grupa)
                                         Grupa.create({'naziv': s.grupa})
                                         .then(kreirana => {
-                                            console.log('kreirana ' + JSON.parse(JSON.stringify(kreirana)))
                                             kreirana = JSON.parse(JSON.stringify(kreirana))
-                                                console.log(kreirana)
-                                                    s.grupaId = kreirana.id
-                                                    s.save();
-                                                    listaDodanih.push(s.index)
+                                               console.log('kreirana id ' + kreirana.id)
+                                                    s.update({grupaId:kreirana.id})
+                                        }).catch(e => {
+                                          console.log('student ' + s)
                                         })
                                     }else{
                                         postojeca = JSON.parse(JSON.stringify(postojeca))
-                                        s.grupaId = postojeca.id
-                                        s.save();
-                                        listaDodanih.push(s.index)
+                                        
+                                         s.update({grupaId: postojeca.id})
+                                       // s.save();
                                     }
                                     
                                 })
@@ -189,9 +189,10 @@ app.post('/batch/student', (req, res) => {
             }
 
         }).then(() => {
-
+            console.log('------------\nLista postojecih' + listaPostojecih + '\n------------------\n')
+  
             let brojSvihStudenata = data.length //4
-            let brojDodanihStudenata = brojSvihStudenata - listaPostojecih.length - listaDodanih.length// 4 - 
+            let brojDodanihStudenata = brojSvihStudenata - listaPostojecih.length // 4 - 
             if (brojDodanihStudenata < 0) brojDodanihStudenata = 0
             if (brojDodanihStudenata === brojSvihStudenata)
                 res.send({ status: `Dodano ${brojSvihStudenata} studenata` })
