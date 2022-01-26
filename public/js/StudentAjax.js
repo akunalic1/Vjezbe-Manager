@@ -37,7 +37,7 @@ let StudentAjax = (function () {
         var xhr = new XMLHttpRequest();
         
        xhr.open('PUT', `/student/${index}`, false);
-       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      xhr.setRequestHeader('Content-type', 'application/json');
      
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -56,16 +56,15 @@ let StudentAjax = (function () {
                 callbackFunction(this.responseText, null)
             }
         };
-        xhr.send(JSON.stringify({'grupa': grupa}));
+        xhr.send(JSON.stringify({'grupa':grupa}));
+        //xhr.send(JSON.stringify({'grupa':grupa}));
     }
 
     const dodajBatch = function (csvStudenti, callbackFunction) {
         var xhr = new XMLHttpRequest();
-        
         console.log(csvStudenti)
-
         xhr.open('POST', `/batch/student`, false);
-        xhr.setRequestHeader('Content-type', 'application/json');
+       // xhr.setRequestHeader('Content-type', 'text/csv');
       
          xhr.onreadystatechange = function () {
              if (this.readyState == 4 && this.status == 200) {
@@ -84,7 +83,7 @@ let StudentAjax = (function () {
                  callbackFunction(this.responseText, null)
              }
          };
-         xhr.send(JSON.stringify({'csv': csvStudenti}));
+         xhr.send(csvStudenti);
     }
 
    

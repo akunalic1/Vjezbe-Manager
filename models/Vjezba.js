@@ -7,12 +7,17 @@ const Vjezba = db.define('vjezba', {
     naziv: {
         type: Sequelize.STRING
     },
-    grupa: {
-        type: Sequelize.STRING
-    },
     brojZadataka: {
         type: Sequelize.INTEGER
     }
 },{timestamps: false})
 
+//Vjezba.hasMany(Zadatak)
+/*
+Zadatak.hasOne(Vjezba, { 
+onDelete: 'CASCADE',
+  onUpdate: 'CASCADE' });
+//Vjezba.belongsTo(Zadatak);
+
+*/
 module.exports = Vjezba

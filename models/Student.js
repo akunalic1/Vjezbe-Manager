@@ -10,17 +10,19 @@ const Student = db.define('student', {
         type: Sequelize.STRING
     },
     index: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        unique:true
     },
     grupa: {
         type: Sequelize.STRING
     },
     },{timestamps: false})
-    
+ /*   
 Student.hasOne(Grupa, {as:'grupaa', 
 onDelete: 'CASCADE',
   onUpdate: 'CASCADE',
 foreignKey: 'student_pk' });
 Grupa.belongsTo(Student, {foreignKey: 'student_pk' });
-
+*/
+Grupa.hasMany(Student)
 module.exports = Student

@@ -10,10 +10,13 @@ const fs = require('fs')
 const Student = require('./models/Student');
 const Grupa = require('./models/Grupa');
 const Vjezba = require('./models/Vjezba');
+const Zadatak = require('./models/Zadatak');
 
 //!                                             MIDDLEWARES
 app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(bodyParser.text())
+app.use(bodyParser.raw({ inflate: true, limit: '100kb', type: 'text/xml' }));
 app.use(express.static('public/html'));
 app.use(express.static('public/js'));
 app.use(express.static('public/css'));
@@ -48,10 +51,19 @@ app.post('/vjezbe', (req, res) => {
     if (!odgovor.pogresno) {
         Vjezba.findAll().then(vjezbe => {
             for (let i in req.body.brojZadataka) {
+                let brZd = parseInt(req.body.brojZadataka[i])
                 Vjezba.create({
                     naziv: `Vjezba ${parseInt(i) + 1 + vjezbe.length}`,
                     grupa: null,
-                    brojZadataka: req.body.brojZadataka[i]
+                    brojZadataka: brZd
+                }).then(v => {
+                    for (let j = 0; j < brZd; j++) {
+                        console.log(brZd)
+                        Zadatak.create({
+                            naziv: `Zadatak ${j + 1}`,
+                            vjezbaId: v.id
+                        })
+                    }
                 })
             }
         })
@@ -69,23 +81,25 @@ app.post('/student', (req, res) => {
     let s = req.body;
     let { ime, prezime, index, grupa } = s
 
-    Student.findOne({ where: { 'index': index } }).then(t => {
-        if (t != null) {
-            res.status(400).send({ status: `Student sa indeksom ${index} već postoji` });
-        } else {
-            Student.create({ ime, prezime, index, grupa }/*, {
-                include: [
-                    {
-                        model: Grupa, as: "grupaa" 
-                    }
-                ]
-            }*/).then(ss => {
-                Grupa.findOne({ where: { 'naziv': grupa } }).then(tt => {
-                    if (tt == null)
-                        Grupa.create({ 'naziv': grupa, 'student_pk': ss.id }).then(ss => console.log(s)).catch(e => console.log(e))
-                    res.send({ status: 'Kreiran student' });
-                })
-            }).catch(e => console.log(e))
+    Student.findOne({ where: { 'index': index } })
+            .then(t => {
+                    if (t != null) {
+                        res.status(400).send({ status: `Student sa indeksom ${index} već postoji` });
+                    } else {
+                        Grupa.findOrCreate({ where: { 'naziv': grupa } })
+                             .then((kreirana, uspjesno) => {
+                                 kreirana = JSON.parse(JSON.stringify(kreirana[0]))
+                                 console.log(kreirana.id)
+                                 console.log(typeof kreirana)
+                                 let grupaId = kreirana.id
+                                 Student.create({ ime, prezime, index, grupa,grupaId})
+                                         .then(() => {
+                                                 res.send({ status: 'Kreiran student' });
+                                         }).catch(e => console.log(e))
+                             }
+
+                             ).catch(e => console.log(e))
+                           // res.send({ status: 'Kreiran student' });         
         }
     }).catch(e => console.log(e))
 })
@@ -93,15 +107,30 @@ app.post('/student', (req, res) => {
 // !                                            PUT/student/:index
 app.put('/student/:index', (req, res) => {
     let grupa = req.body.grupa;
-    console.log(typeof grupa)
+    console.log(grupa)
+    console.log(req.params)
     Student.findOne({ where: { 'index': req.params.index } })
         .then(ss => {
+            console.log(ss)
             if (ss != null) {
-                Student.update({ 'grupa': grupa }, { where: { 'index': req.params.index } })
-                    .then((s) => {
-                        Grupa.findOne({ where: { 'student_pk': s.id } })
-                        res.send(`promjenjena grupa studentu ${req.params.index}`)
-                    })
+                        console.log('student za update: ' + ss)
+                        Grupa.findOne({ where: { 'naziv': grupa } }).then(g => {
+                            if(g != null){
+                                ss.grupa = g.naziv;
+                                ss.grupaId = g.id
+                                ss.save();
+                                res.send( {status:`promjenjena grupa studentu ${req.params.index}`})
+                            }else{
+                                Grupa.create({naziv:grupa}).then(ggg => {
+                                    ggg = JSON.parse(JSON.stringify(ggg))
+                                    ss.grupa = ggg.naziv;
+                                    ss.grupaId = ggg.id
+                                    ss.save();
+                                    res.send( {status:`promjenjena grupa studentu ${req.params.index}`})
+                                }).catch()
+                            }
+                        })
+                   
             } else {
                 res.status(400).send({ status: `Student sa indeksom ${req.params.index} ne postoji` });
             }
@@ -110,32 +139,68 @@ app.put('/student/:index', (req, res) => {
 
 // !                    post / batch & student csv
 app.post('/batch/student', (req, res) => {
-    let data = izdvoji(req.body.csv)
-    console.log('Csv podaci ' + data)
-    let listaPostojecih = []
-    Student.findAll().then((studenti) => {
-        for (let i in data) {
-            if (studenti.filter(m => m.index == data[i].index).length != 0)
-                listaPostojecih.push(data[i].index)
-            else {
-                Student.create(data[i])
-                .then((s) => {
-                    Grupa.findOne({ where: { 'naziv': s.grupa } })
-                    .then(g => {
-                        if(g == null){
-                            Grupa.create({'naziv': s.grupa, 'student_pk': s.id})
-                        }
-                    })
-                })
+    req.body.toString('utf-8')
+    console.log(req.body)
+    let data = izdvoji(req.body)
+    let { unikati, duplikati } = ukloniDuplikatePoIndexu(data)
+    let listaPostojecih = duplikati.map(x => x.index)
+    let listaDodanih = []
+
+    if (!data.hasOwnProperty('greska')) {
+        Student.findAll().then((studenti) => {
+            for (let i = 0; i < data.length; i++) {
+                let brojPostojecihUnutarBaze = studenti.filter(m => { return m.index == data[i].index }).length
+
+                if (brojPostojecihUnutarBaze != 0) {
+                    if (listaPostojecih.filter(x => x == data[i].index).length == 0) {
+                        listaPostojecih.push(data[i].index)
+                    } else
+                        listaDodanih.push(data[i].index)
+                }
+                else {
+                    Student.create(data[i])
+                        .then((s) => {
+                            Grupa.findOne({ where: { 'naziv': data[i].grupa } })
+                                .then(postojeca => {
+                                    if(postojeca == null){
+                                        console.log(postojeca)
+                                        Grupa.create({'naziv': s.grupa})
+                                        .then(kreirana => {
+                                            console.log('kreirana ' + JSON.parse(JSON.stringify(kreirana)))
+                                            kreirana = JSON.parse(JSON.stringify(kreirana))
+                                                console.log(kreirana)
+                                                    s.grupaId = kreirana.id
+                                                    s.save();
+                                                    listaDodanih.push(s.index)
+                                        })
+                                    }else{
+                                        postojeca = JSON.parse(JSON.stringify(postojeca))
+                                        s.grupaId = postojeca.id
+                                        s.save();
+                                        listaDodanih.push(s.index)
+                                    }
+                                    
+                                })
+
+                        }).catch(err => {
+
+                        })
+                }
             }
-        }
-        let N = listaPostojecih.length
-        let M = data.length - N
-        if (N === 0)
-            res.send({ status: `Dodano ${M} studenata` })
-        else
-            res.send({ status: `Dodano ${M} studenata, a studenti ${listaPostojecih} već postoje!` })
-    })
+
+        }).then(() => {
+
+            let brojSvihStudenata = data.length //4
+            let brojDodanihStudenata = brojSvihStudenata - listaPostojecih.length - listaDodanih.length// 4 - 
+            if (brojDodanihStudenata < 0) brojDodanihStudenata = 0
+            if (brojDodanihStudenata === brojSvihStudenata)
+                res.send({ status: `Dodano ${brojSvihStudenata} studenata` })
+            else
+                res.send({ status: `Dodano ${brojDodanihStudenata} studenata, a studenti ${listaPostojecih} već postoje!` })
+        })
+    } else {
+        res.send({ status: data.greska })
+    }
 })
 
 
@@ -144,9 +209,6 @@ app.listen(PORT);
 
 //!                                             FUNCTIONS
 
-function procitajVjezbeCSV() {
-    return izdvoji(fs.readFileSync('vjezbe.csv', 'utf-8'));
-}
 function izdvoji(data) {
     let lista = [];
     let regex = '\n';
@@ -155,7 +217,12 @@ function izdvoji(data) {
     let redovi = (data.toString()).split(regex);
 
     for (let red of redovi) {
-
+        let podaci = red.split(',');
+        console.log(isNaN(Number(podaci[2])))
+        if (podaci.length != 4 || typeof podaci[0] != 'string' || isNaN(Number(podaci[2])) || typeof podaci[1] != 'string' || typeof podaci[3] != 'string' || podaci[0].length === 0 || podaci[0].length === 0 || podaci[1].length === 0 || podaci[3].length === 0)
+            return {
+                greska: 'Nevalidan format csv podataka.'
+            }
         let objekat = {
             'ime': red.split(',')[0],
             'prezime': red.split(',')[1],
@@ -168,13 +235,6 @@ function izdvoji(data) {
     return lista;
 }
 
-function zapisiUCSV(brojVjezbi) {
-    let data = '';
-    for (let ii in brojVjezbi) {
-        data += crypto.randomBytes(3).toString('hex') + ',' + brojVjezbi[ii] + '\r\n';
-    }
-    fs.writeFileSync('vjezbe.csv', data)
-}
 function kreirajOdgovor(responseBody) {
     let brojVjezbi = responseBody.brojVjezbi;
     let brojZadataka = responseBody.brojZadataka;
@@ -200,9 +260,18 @@ function kreirajOdgovor(responseBody) {
     }
 }
 
+function ukloniDuplikatePoIndexu(data) {
+    let unikati = [], duplikati = []
+    for (let i = 0; i < data.length; i++) {
+        if (unikati.filter(item => item.index === data[i].index).length != 0)
+            duplikati.push(data[i])
+        else
+            unikati.push(data[i])
+    }
+    return { unikati, duplikati };
+}
 // !                    Test DB
+//db.sync({ force: true });
 db.authenticate()
     .then(() => console.log('Database connected...'))
     .catch((err) => console.log(err))
-
-db.sync({ force: true });
