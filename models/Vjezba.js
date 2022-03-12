@@ -12,12 +12,4 @@ const Vjezba = db.define('vjezba', {
     }
 },{timestamps: false})
 
-//Vjezba.hasMany(Zadatak)
-/*
-Zadatak.hasOne(Vjezba, { 
-onDelete: 'CASCADE',
-  onUpdate: 'CASCADE' });
-//Vjezba.belongsTo(Zadatak);
-
-*/
 module.exports = Vjezba
